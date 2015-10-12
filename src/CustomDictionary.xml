@@ -1,0 +1,17 @@
+<Dictionary>
+  <Words>
+    <Recognized>
+      <Word>Fx</Word>    
+      <Word>Git</Word> 
+      <Word>api</Word> 
+      <Word>Svg</Word> 
+      <Word>Json</Word> 
+    </Recognized>
+    <Deprecated>
+    </Deprecated>
+  </Words>
+  <Acronyms>
+      <CasingExceptions>
+    </CasingExceptions>
+  </Acronyms>
+</Dictionary>

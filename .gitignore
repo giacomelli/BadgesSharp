@@ -153,7 +153,6 @@ AppPackages/
 # Others
 *.[Cc]ache
 ClientBin/
-[Ss]tyle[Cc]op.*
 ~$*
 *~
 *.dbmdl
@@ -194,3 +193,15 @@ FakesAssemblies/
 
 # Visual Studio 6 workspace options file
 *.opt
+tools/coverage/
+tools/fxcop-report.xml
+opencoverCoverage.xml
+tools/fxcop-report.html
+tools/FxCop-badge.svg
+FxCop-badge.svg
+src/BadgesSharp.WebApi/Badges/https___github.com_giacomelli_SampleProject_FxCop.svg
+src/BadgesSharp.WebApi/Badges/https___github.com_giacomelli_SampleProject_SpecFlow.svg
+src/BadgesSharp.WebApi/Badges/https___github.com_giacomelli_SampleProject_DupFinder.svg
+src/BadgesSharp.WebApi/Badges/giacomelli/
+nuget.exe
+nugetInstallPackage.sh

@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Skahal.Infrastructure.Repositories.GData</name>
+    </assembly>
+    <members>
+        <member name="T:Skahal.Infrastructure.Repositories.GData.GDataRepositoryBase`1">
+            <summary>
+            GData repository base class.
+            <remarks>>
+            This repository use a Google Docs Spreadsheet has database, each entity will be a sheet inside that spreadsheet.
+            Of course, this repository is for specific use, please, don't try to use it has an app database, it is not for that ;)
+            
+            The common use for this repository is to store a specific app configuration or to import/export data to a spreeadsheet.
+            Does your user ask you to export that report data to a Google Docs Spreadsheet? This repository is for that kind o use.
+            
+            The CountAll and FindAll methods are not optimized, this mean that all linq expression are performed locally.
+            </remarks>
+            </summary>
+        </member>
+        <member name="M:Skahal.Infrastructure.Repositories.GData.GDataRepositoryBase`1.#ctor(System.String,System.String,System.Byte[])">
+            <summary>        
+            Initializes a new instance of the <see cref="T:Skahal.Infrastructure.Repositories.GData.GDataRepositoryBase`1"/> class.
+            </summary>
+            <param name="databaseName">The database name. This is the name of spreadsheet that will be created on Google Docs.</param>
+            <param name="clientEmail">The Google Docs client email with access to spreadsheet.</param>
+            <param name="privateKey">The P12 private key bytes to access the Google Drive API. More info http://stackoverflow.com/a/30497154/956886 .</param>
+        </member>
+        <member name="M:Skahal.Infrastructure.Repositories.GData.GDataRepositoryBase`1.#ctor(System.String,System.String,System.Byte[],System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Skahal.Infrastructure.Repositories.GData.GDataRepositoryBase`1"/> class.
+            </summary>
+            <param name="databaseName">The database name. This is the name of spreadsheet that will be created on Google Docs.</param>
+            <param name="clientEmail">The Google Docs client email with access to spreadsheet.</param>
+            <param name="privateKey">The P12 private key bytes to access the Google Drive API. More info http://stackoverflow.com/a/30497154/956886 .</param>
+            <param name="tableName">The default name of table (sheet) is the entity name, but you can choose your own with this argument.</param>
+        </member>
+        <member name="M:Skahal.Infrastructure.Repositories.GData.GDataRepositoryBase`1.CountAll(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Counts all entities that matches the filter.
+            </summary>
+            <returns>The number of the entities that matches the filter.</returns>
+            <param name="filter">Filter.</param>
+        </member>
+        <member name="M:Skahal.Infrastructure.Repositories.GData.GDataRepositoryBase`1.FindAll(System.Int32,System.Int32,System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Finds all entities that matches the filter.
+            </summary>
+            <returns>The found entities.</returns>
+            <param name="offset">The offset to start the result.</param>
+            <param name="limit">The result count limit.</param>
+            <param name="filter">The entities filter.</param>
+        </member>
+        <member name="M:Skahal.Infrastructure.Repositories.GData.GDataRepositoryBase`1.FindAllAscending``1(System.Int32,System.Int32,System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{`0,``0}})">
+            <summary>
+            Finds all entities that matches the filter in a ascending order.
+            </summary>
+            <returns>The found entities.</returns>
+            <param name="offset">The offset to start the result.</param>
+            <param name="limit">The result count limit.</param>
+            <param name="filter">The entities filter.</param>
+            <param name="orderBy">The order.</param>
+            <typeparam name="TKey">The 1st type parameter.</typeparam>
+        </member>
+        <member name="M:Skahal.Infrastructure.Repositories.GData.GDataRepositoryBase`1.FindAllDescending``1(System.Int32,System.Int32,System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{`0,``0}})">
+            <summary>
+            Finds all entities that matches the filter in a descending order.
+            </summary>
+            <returns>The found entities.</returns>
+            <param name="offset">The offset to start the result.</param>
+            <param name="limit">The result count limit.</param>
+            <param name="filter">The entities filter.</param>
+            <param name="orderBy">The order.</param>
+            <typeparam name="TKey">The 1st type parameter.</typeparam>
+        </member>
+        <member name="M:Skahal.Infrastructure.Repositories.GData.GDataRepositoryBase`1.FindBy(System.Object)">
+            <summary>
+            Finds the entity by the key.
+            </summary>
+            <returns>The found entity.</returns>
+            <param name="key">Key.</param>
+        </member>
+        <member name="M:Skahal.Infrastructure.Repositories.GData.GDataRepositoryBase`1.PersistDeletedItem(`0)">
+            <summary>
+            Persists the deleted item.
+            </summary>
+            <param name="item">Item.</param>
+        </member>
+        <member name="M:Skahal.Infrastructure.Repositories.GData.GDataRepositoryBase`1.PersistNewItem(`0)">
+            <summary>
+            Persists the new item.
+            </summary>
+            <param name="item">Item.</param>
+        </member>
+        <member name="M:Skahal.Infrastructure.Repositories.GData.GDataRepositoryBase`1.PersistUpdatedItem(`0)">
+            <summary>
+            Persists the updated item.
+            </summary>
+            <param name="item">Item.</param>
+        </member>
+        <member name="M:Skahal.Infrastructure.Repositories.GData.GDataRepositoryBase`1.GetTable">
+            <summary>
+            Gets the table.
+            </summary>
+            <returns>The table.</returns>
+        </member>
+        <member name="M:Skahal.Infrastructure.Repositories.GData.GDataRepositoryBase`1.GetRowById(System.String)">
+            <summary>
+            Gets the row by identifier.
+            </summary>
+            <returns>The row by identifier.</returns>
+            <param name="key">Key.</param>
+        </member>
+    </members>
+</doc>

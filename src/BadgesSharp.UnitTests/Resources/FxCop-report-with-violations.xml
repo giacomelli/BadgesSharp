@@ -1,0 +1,668 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="c:\program files (x86)\microsoft fxcop 10.0\Xml\FxCopReport.xsl"?>
+<FxCopReport Version="10.0">
+ <Targets>
+  <Target Name="$(ProjectDir)/SampleProject.BackgroundWorkerApp/bin/DEV/SampleProject.BackgroundWorkerApp.exe">
+   <Modules>
+    <Module Name="sampleproject.backgroundworkerapp.exe">
+     <Namespaces>
+      <Namespace Name="SampleProject.BackgroundWorkerApp">
+       <Types>
+        <Type Name="Program" Kind="Class" Accessibility="Assembly" ExternallyVisible="False">
+         <Members>
+          <Member Name="#Main(System.String[])" Kind="Method" Static="True" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message Id="args" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Status="Active" Created="2015-10-01 11:18:32Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Warning" Path="C:\Dropbox\personal\Diego Giacomelli\Apps\SampleProject\src\SampleProject.BackgroundWorkerApp" File="Program.cs" Line="6">Parameter 'args' of 'Program.Main(string[])' is never used. Remove the parameter or use it in the method body.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+  <Target Name="$(ProjectDir)/SampleProject.Domain/bin/DEV/SampleProject.Domain.dll">
+   <Modules>
+    <Module Name="sampleproject.domain.dll">
+     <Messages>
+      <Message TypeName="MarkAssembliesWithClsCompliant" Category="Microsoft.Design" CheckId="CA1014" Status="Active" Created="2015-10-01 11:18:32Z" FixCategory="NonBreaking">
+       <Issue Certainty="95" Level="Error">Mark 'SampleProject.Domain.dll' with CLSCompliant(true) because it exposes externally visible types.</Issue>
+      </Message>
+     </Messages>
+     <Namespaces>
+      <Namespace Name="SampleProject.Domain.Accounts">
+       <Types>
+        <Type Name="IPermissionService" Kind="Interface" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="AvoidEmptyInterfaces" Category="Microsoft.Design" CheckId="CA1040" Status="Active" Created="2015-10-01 11:18:32Z" FixCategory="Breaking">
+           <Issue Certainty="90" Level="Warning">Define a custom attribute to replace 'IPermissionService'.</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="IUserPasswordService" Kind="Interface" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#GetPasswordResetTokensNotSent()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="UsePropertiesWhereAppropriate" Category="Microsoft.Design" CheckId="CA1024" Status="Active" Created="2015-10-01 11:18:32Z" FixCategory="Breaking">
+             <Issue Certainty="50" Level="Warning">Change 'IUserPasswordService.GetPasswordResetTokensNotSent()' to a property if appropriate.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#GetPasswordResetTokensUsedNotNotified()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="UsePropertiesWhereAppropriate" Category="Microsoft.Design" CheckId="CA1024" Status="Active" Created="2015-10-01 11:18:32Z" FixCategory="Breaking">
+             <Issue Certainty="50" Level="Warning">Change 'IUserPasswordService.GetPasswordResetTokensUsedNotNotified()' to a property if appropriate.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#MarkPasswordResetTokenAsSent(System.Int32)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="AsSent" TypeName="CompoundWordsShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1702" Status="Active" Created="2015-10-01 11:18:32Z" FixCategory="Breaking">
+             <Issue Name="MemberShouldBeDiscreteTerm" Certainty="80" Level="Error">The compound word 'AsSent' in member name 'IUserPasswordService.MarkPasswordResetTokenAsSent(int)' exists as a discrete term. If your usage is intended to be single word, case it as 'Assent' or strip the first token entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="IUserService" Kind="Interface" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#Count(System.Linq.Expressions.Expression`1&lt;System.Func`2&lt;SampleProject.Domain.Accounts.User,System.Boolean&gt;&gt;)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotNestGenericTypesInMemberSignatures" Category="Microsoft.Design" CheckId="CA1006" Status="Active" Created="2015-10-01 11:18:32Z" FixCategory="Breaking">
+             <Issue Certainty="95" Level="CriticalError">Consider a design where 'IUserService.Count(Expression&lt;Func&lt;User, bool&gt;&gt;)' doesn't nest generic type 'Expression&lt;Func&lt;User, bool&gt;&gt;'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="Permission" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="IdentifiersShouldNotHaveIncorrectSuffix" Category="Microsoft.Naming" CheckId="CA1711" Status="Active" Created="2015-10-01 11:18:32Z" FixCategory="Breaking">
+           <Issue Name="TypeNoAlternate" Certainty="95" Level="CriticalError">Rename type name 'Permission' so that it does not end in 'Permission'.</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Role" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.ctor()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Status="Active" Created="2015-10-01 11:18:32Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalWarning" Path="C:\Dropbox\personal\Diego Giacomelli\Apps\SampleProject\src\SampleProject.Domain\Accounts" File="Role.cs" Line="23">'Role.Role()' contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: &#xD;&#xA;&#xD;&#xA;Role..ctor()&#xD;&#xA;Role.set_Permissions(IList&lt;Permission&gt;):Void</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#Permissions" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="CollectionPropertiesShouldBeReadOnly" Category="Microsoft.Usage" CheckId="CA2227" Status="Active" Created="2015-10-01 11:18:32Z" FixCategory="Breaking">
+             <Issue Certainty="75" Level="Warning" Path="C:\Dropbox\personal\Diego Giacomelli\Apps\SampleProject\src\SampleProject.Domain\Accounts" File="Role.cs" Line="48">Change 'Role.Permissions' to be read-only by removing the property setter.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="RoleFilter" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#Sanitize()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="NormalizeStringsToUppercase" Category="Microsoft.Globalization" CheckId="CA1308" Status="Active" Created="2015-10-01 11:18:32Z" FixCategory="NonBreaking">
+             <Issue Name="ToUpperInvariant" Certainty="90" Level="Error" Path="C:\Dropbox\personal\Diego Giacomelli\Apps\SampleProject\src\SampleProject.Domain\Accounts" File="RoleFilter.cs" Line="14">In method 'RoleFilter.Sanitize()', replace the call to 'string.ToLowerInvariant()' with String.ToUpperInvariant().</Issue>
+             <Issue Name="ToUpperInvariant" Certainty="90" Level="Error" Path="C:\Dropbox\personal\Diego Giacomelli\Apps\SampleProject\src\SampleProject.Domain\Accounts" File="RoleFilter.cs" Line="15">In method 'RoleFilter.Sanitize()', replace the call to 'string.ToLowerInvariant()' with String.ToUpperInvariant().</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="User" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#SampleProject.Infrastructure.Framework.Domain.INamedEntity.Name" Kind="Property" Static="False" Accessibility="Private" ExternallyVisible="True">
+           <Accessors>
+            <Accessor Name="#SampleProject.Infrastructure.Framework.Domain.INamedEntity.get_Name()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="True">
+             <Messages>
+              <Message TypeName="InterfaceMethodsShouldBeCallableByChildTypes" Category="Microsoft.Design" CheckId="CA1033" Status="Active" Created="2015-10-01 11:18:32Z" FixCategory="NonBreaking">
+               <Issue Certainty="95" Level="Error" Path="C:\Dropbox\personal\Diego Giacomelli\Apps\SampleProject\src\SampleProject.Domain\Accounts" File="User.cs" Line="85">Make 'User' sealed (a breaking change if this class has previously shipped), implement the method non-explicitly, or implement a new method that exposes the functionality of 'INamedEntity.Name.get()' and is visible to derived classes.</Issue>
+              </Message>
+             </Messages>
+            </Accessor>
+           </Accessors>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="UserFilter" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#Sanitize(System.String)" Kind="Method" Static="True" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="NormalizeStringsToUppercase" Category="Microsoft.Globalization" CheckId="CA1308" Status="Active" Created="2015-10-01 11:18:32Z" FixCategory="NonBreaking">
+             <Issue Name="ToUpperInvariant" Certainty="90" Level="Error" Path="C:\Dropbox\personal\Diego Giacomelli\Apps\SampleProject\src\SampleProject.Domain\Accounts" File="UserFilter.cs" Line="41">In method 'UserFilter.Sanitize(string)', replace the call to 'string.ToLower(CultureInfo)' with String.ToUpperInvariant().</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#Subregional" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="Subregional" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2015-10-01 11:18:32Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning" Path="C:\Dropbox\personal\Diego Giacomelli\Apps\SampleProject\src\SampleProject.Domain\Accounts" File="UserFilter.cs" Line="15">Correct the spelling of 'Subregional' in member name 'UserFilter.Subregional' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="UserService" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#BackgroundWokerUserId" Kind="Field" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="Woker" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2015-10-01 11:18:32Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning">Correct the spelling of 'Woker' in member name 'UserService.BackgroundWokerUserId' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#BackgroundWokerUserName" Kind="Field" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="Woker" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2015-10-01 11:18:32Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning">Correct the spelling of 'Woker' in member name 'UserService.BackgroundWokerUserName' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+  <Target Name="$(ProjectDir)/SampleProject.Infrastructure.Framework/bin/DEV/SampleProject.Infrastructure.Framework.dll">
+   <Modules>
+    <Module Name="sampleproject.infrastructure.framework.dll">
+     <Messages>
+      <Message TypeName="MarkAssembliesWithClsCompliant" Category="Microsoft.Design" CheckId="CA1014" Status="Active" Created="2015-10-01 11:18:32Z" FixCategory="NonBreaking">
+       <Issue Certainty="95" Level="Error">Mark 'SampleProject.Infrastructure.Framework.dll' with CLSCompliant(true) because it exposes externally visible types.</Issue>
+      </Message>
+      <Message TypeName="MarkAssembliesWithNeutralResourcesLanguage" Category="Microsoft.Performance" CheckId="CA1824" Status="Active" Created="2015-10-01 11:18:32Z" FixCategory="NonBreaking">
+       <Issue Certainty="95" Level="Warning">Because assembly 'SampleProject.Infrastructure.Framework.dll' contains a ResX-based resource file, mark it with the NeutralResourcesLanguage attribute, specifying the language of the resources within the assembly. This could improve lookup performance the first time a resource is retrieved.</Issue>
+      </Message>
+     </Messages>
+     <Namespaces>
+      <Namespace Name="SampleProject.Infrastructure.Framework.Commons.Specs">
+       <Types>
+        <Type Name="MustHaveUniqueValueSpec`2" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.ctor(System.Linq.Expressions.Expression`1&lt;System.Func`2&lt;!0,!1&gt;&gt;,System.Linq.Expressions.Expression`1&lt;System.Func`2&lt;!1,!0&gt;&gt;)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotNestGenericTypesInMemberSignatures" Category="Microsoft.Design" CheckId="CA1006" Status="Active" Created="2015-10-01 11:18:32Z" FixCategory="Breaking">
+             <Issue Certainty="95" Level="CriticalError" Path="C:\Dropbox\personal\Diego Giacomelli\Apps\SampleProject\src\SampleProject.Infrastructure.Framework\Commons\Specs" File="MustHaveUniqueValueSpec.cs" Line="35">Consider a design where 'MustHaveUniqueValueSpec&lt;TTarget, TValue&gt;.MustHaveUniqueValueSpec(Expression&lt;Func&lt;TTarget, TValue&gt;&gt;, Expression&lt;Func&lt;TValue, TTarget&gt;&gt;)' doesn't nest generic type 'Expression&lt;Func&lt;TTarget, TValue&gt;&gt;'.</Issue>
+             <Issue Certainty="95" Level="CriticalError" Path="C:\Dropbox\personal\Diego Giacomelli\Apps\SampleProject\src\SampleProject.Infrastructure.Framework\Commons\Specs" File="MustHaveUniqueValueSpec.cs" Line="35">Consider a design where 'MustHaveUniqueValueSpec&lt;TTarget, TValue&gt;.MustHaveUniqueValueSpec(Expression&lt;Func&lt;TTarget, TValue&gt;&gt;, Expression&lt;Func&lt;TValue, TTarget&gt;&gt;)' doesn't nest generic type 'Expression&lt;Func&lt;TValue, TTarget&gt;&gt;'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#IsSatisfiedBy(!0)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="NormalizeStringsToUppercase" Category="Microsoft.Globalization" CheckId="CA1308" Status="Active" Created="2015-10-01 11:18:32Z" FixCategory="NonBreaking">
+             <Issue Name="ToUpperInvariant" Certainty="90" Level="Error" Path="C:\Dropbox\personal\Diego Giacomelli\Apps\SampleProject\src\SampleProject.Infrastructure.Framework\Commons\Specs" File="MustHaveUniqueValueSpec.cs" Line="69">In method 'MustHaveUniqueValueSpec&lt;TTarget, TValue&gt;.IsSatisfiedBy(TTarget)', replace the call to 'string.ToLowerInvariant()' with String.ToUpperInvariant().</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#m_getByName" Kind="Field" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="DoNotNestGenericTypesInMemberSignatures" Category="Microsoft.Design" CheckId="CA1006" Status="Active" Created="2015-10-01 11:18:32Z" FixCategory="Breaking">
+             <Issue Certainty="95" Level="CriticalError">Consider a design where 'MustHaveUniqueValueSpec&lt;TTarget, TValue&gt;.m_getByName' doesn't nest generic type 'Expression&lt;Func&lt;TValue, TTarget&gt;&gt;'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#m_getProperty" Kind="Field" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="DoNotNestGenericTypesInMemberSignatures" Category="Microsoft.Design" CheckId="CA1006" Status="Active" Created="2015-10-01 11:18:32Z" FixCategory="Breaking">
+             <Issue Certainty="95" Level="CriticalError">Consider a design where 'MustHaveUniqueValueSpec&lt;TTarget, TValue&gt;.m_getProperty' doesn't nest generic type 'Expression&lt;Func&lt;TTarget, TValue&gt;&gt;'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#NotSatisfiedReasonText" Kind="Field" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotDeclareStaticMembersOnGenericTypes" Category="Microsoft.Design" CheckId="CA1000" Status="Active" Created="2015-10-01 11:18:32Z" FixCategory="Breaking">
+             <Issue Certainty="95" Level="Error">Remove 'MustHaveUniqueValueSpec&lt;TTarget, TValue&gt;.NotSatisfiedReasonText' from 'MustHaveUniqueValueSpec&lt;TTarget, TValue&gt;' or make it an instance member.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+      <Namespace Name="SampleProject.Infrastructure.Framework.Domain">
+       <Types>
+        <Type Name="DomainServiceBase`2" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#Count(System.Linq.Expressions.Expression`1&lt;System.Func`2&lt;!0,System.Boolean&gt;&gt;)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotNestGenericTypesInMemberSignatures" Category="Microsoft.Design" CheckId="CA1006" Status="Active" Created="2015-10-01 11:18:32Z" FixCategory="Breaking">
+             <Issue Certainty="95" Level="CriticalError" Path="C:\Dropbox\personal\Diego Giacomelli\Apps\SampleProject\src\SampleProject.Infrastructure.Framework\Domain" File="DomainServiceBase.cs" Line="68">Consider a design where 'DomainServiceBase&lt;TEntity, TMainRepository&gt;.Count(Expression&lt;Func&lt;TEntity, bool&gt;&gt;)' doesn't nest generic type 'Expression&lt;Func&lt;TEntity, bool&gt;&gt;'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#GetAscending`1(System.Int32,System.Int32,System.Linq.Expressions.Expression`1&lt;System.Func`2&lt;!0,System.Boolean&gt;&gt;,System.Linq.Expressions.Expression`1&lt;System.Func`2&lt;!0,!!0&gt;&gt;)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotNestGenericTypesInMemberSignatures" Category="Microsoft.Design" CheckId="CA1006" Status="Active" Created="2015-10-01 11:18:32Z" FixCategory="Breaking">
+             <Issue Certainty="95" Level="CriticalError" Path="C:\Dropbox\personal\Diego Giacomelli\Apps\SampleProject\src\SampleProject.Infrastructure.Framework\Domain" File="DomainServiceBase.cs" Line="91">Consider a design where 'DomainServiceBase&lt;TEntity, TMainRepository&gt;.GetAscending&lt;TOrderByKey&gt;(int, int, Expression&lt;Func&lt;TEntity, bool&gt;&gt;, Expression&lt;Func&lt;TEntity, TOrderByKey&gt;&gt;)' doesn't nest generic type 'Expression&lt;Func&lt;TEntity, TOrderByKey&gt;&gt;'.</Issue>
+             <Issue Certainty="95" Level="CriticalError" Path="C:\Dropbox\personal\Diego Giacomelli\Apps\SampleProject\src\SampleProject.Infrastructure.Framework\Domain" File="DomainServiceBase.cs" Line="91">Consider a design where 'DomainServiceBase&lt;TEntity, TMainRepository&gt;.GetAscending&lt;TOrderByKey&gt;(int, int, Expression&lt;Func&lt;TEntity, bool&gt;&gt;, Expression&lt;Func&lt;TEntity, TOrderByKey&gt;&gt;)' doesn't nest generic type 'Expression&lt;Func&lt;TEntity, bool&gt;&gt;'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#GetDescending`1(System.Int32,System.Int32,System.Linq.Expressions.Expression`1&lt;System.Func`2&lt;!0,System.Boolean&gt;&gt;,System.Linq.Expressions.Expression`1&lt;System.Func`2&lt;!0,!!0&gt;&gt;)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotNestGenericTypesInMemberSignatures" Category="Microsoft.Design" CheckId="CA1006" Status="Active" Created="2015-10-01 11:18:32Z" FixCategory="Breaking">
+             <Issue Certainty="95" Level="CriticalError" Path="C:\Dropbox\personal\Diego Giacomelli\Apps\SampleProject\src\SampleProject.Infrastructure.Framework\Domain" File="DomainServiceBase.cs" Line="107">Consider a design where 'DomainServiceBase&lt;TEntity, TMainRepository&gt;.GetDescending&lt;TOrderByKey&gt;(int, int, Expression&lt;Func&lt;TEntity, bool&gt;&gt;, Expression&lt;Func&lt;TEntity, TOrderByKey&gt;&gt;)' doesn't nest generic type 'Expression&lt;Func&lt;TEntity, TOrderByKey&gt;&gt;'.</Issue>
+             <Issue Certainty="95" Level="CriticalError" Path="C:\Dropbox\personal\Diego Giacomelli\Apps\SampleProject\src\SampleProject.Infrastructure.Framework\Domain" File="DomainServiceBase.cs" Line="107">Consider a design where 'DomainServiceBase&lt;TEntity, TMainRepository&gt;.GetDescending&lt;TOrderByKey&gt;(int, int, Expression&lt;Func&lt;TEntity, bool&gt;&gt;, Expression&lt;Func&lt;TEntity, TOrderByKey&gt;&gt;)' doesn't nest generic type 'Expression&lt;Func&lt;TEntity, bool&gt;&gt;'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="DomainServiceExtensions" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#Get`1(SampleProject.Infrastructure.Framework.Domain.IDomainService`1&lt;!!0&gt;,System.Linq.Expressions.Expression`1&lt;System.Func`2&lt;!!0,System.Boolean&gt;&gt;)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotNestGenericTypesInMemberSignatures" Category="Microsoft.Design" CheckId="CA1006" Status="Active" Created="2015-10-01 11:18:32Z" FixCategory="Breaking">
+             <Issue Certainty="95" Level="CriticalError" Path="C:\Dropbox\personal\Diego Giacomelli\Apps\SampleProject\src\SampleProject.Infrastructure.Framework\Domain" File="DomainServiceExtensions.cs" Line="36">Consider a design where 'DomainServiceExtensions.Get&lt;TEntity&gt;(this IDomainService&lt;TEntity&gt;, Expression&lt;Func&lt;TEntity, bool&gt;&gt;)' doesn't nest generic type 'Expression&lt;Func&lt;TEntity, bool&gt;&gt;'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#GetAscending`2(SampleProject.Infrastructure.Framework.Domain.IDomainService`1&lt;!!0&gt;,System.Int32,System.Int32,System.Linq.Expressions.Expression`1&lt;System.Func`2&lt;!!0,!!1&gt;&gt;)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotNestGenericTypesInMemberSignatures" Category="Microsoft.Design" CheckId="CA1006" Status="Active" Created="2015-10-01 11:18:32Z" FixCategory="Breaking">
+             <Issue Certainty="95" Level="CriticalError" Path="C:\Dropbox\personal\Diego Giacomelli\Apps\SampleProject\src\SampleProject.Infrastructure.Framework\Domain" File="DomainServiceExtensions.cs" Line="64">Consider a design where 'DomainServiceExtensions.GetAscending&lt;TEntity, TOrderByKey&gt;(this IDomainService&lt;TEntity&gt;, int, int, Expression&lt;Func&lt;TEntity, TOrderByKey&gt;&gt;)' doesn't nest generic type 'Expression&lt;Func&lt;TEntity, TOrderByKey&gt;&gt;'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#GetAscending`2(SampleProject.Infrastructure.Framework.Domain.IDomainService`1&lt;!!0&gt;,System.Linq.Expressions.Expression`1&lt;System.Func`2&lt;!!0,!!1&gt;&gt;)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotNestGenericTypesInMemberSignatures" Category="Microsoft.Design" CheckId="CA1006" Status="Active" Created="2015-10-01 11:18:32Z" FixCategory="Breaking">
+             <Issue Certainty="95" Level="CriticalError" Path="C:\Dropbox\personal\Diego Giacomelli\Apps\SampleProject\src\SampleProject.Infrastructure.Framework\Domain" File="DomainServiceExtensions.cs" Line="78">Consider a design where 'DomainServiceExtensions.GetAscending&lt;TEntity, TOrderByKey&gt;(this IDomainService&lt;TEntity&gt;, Expression&lt;Func&lt;TEntity, TOrderByKey&gt;&gt;)' doesn't nest generic type 'Expression&lt;Func&lt;TEntity, TOrderByKey&gt;&gt;'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#GetDescending`2(SampleProject.Infrastructure.Framework.Domain.IDomainService`1&lt;!!0&gt;,System.Int32,System.Int32,System.Linq.Expressions.Expression`1&lt;System.Func`2&lt;!!0,!!1&gt;&gt;)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotNestGenericTypesInMemberSignatures" Category="Microsoft.Design" CheckId="CA1006" Status="Active" Created="2015-10-01 11:18:32Z" FixCategory="Breaking">
+             <Issue Certainty="95" Level="CriticalError" Path="C:\Dropbox\personal\Diego Giacomelli\Apps\SampleProject\src\SampleProject.Infrastructure.Framework\Domain" File="DomainServiceExtensions.cs" Line="94">Consider a design where 'DomainServiceExtensions.GetDescending&lt;TEntity, TOrderByKey&gt;(this IDomainService&lt;TEntity&gt;, int, int, Expression&lt;Func&lt;TEntity, TOrderByKey&gt;&gt;)' doesn't nest generic type 'Expression&lt;Func&lt;TEntity, TOrderByKey&gt;&gt;'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#GetDescending`2(SampleProject.Infrastructure.Framework.Domain.IDomainService`1&lt;!!0&gt;,System.Linq.Expressions.Expression`1&lt;System.Func`2&lt;!!0,!!1&gt;&gt;)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotNestGenericTypesInMemberSignatures" Category="Microsoft.Design" CheckId="CA1006" Status="Active" Created="2015-10-01 11:18:32Z" FixCategory="Breaking">
+             <Issue Certainty="95" Level="CriticalError" Path="C:\Dropbox\personal\Diego Giacomelli\Apps\SampleProject\src\SampleProject.Infrastructure.Framework\Domain" File="DomainServiceExtensions.cs" Line="108">Consider a design where 'DomainServiceExtensions.GetDescending&lt;TEntity, TOrderByKey&gt;(this IDomainService&lt;TEntity&gt;, Expression&lt;Func&lt;TEntity, TOrderByKey&gt;&gt;)' doesn't nest generic type 'Expression&lt;Func&lt;TEntity, TOrderByKey&gt;&gt;'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#GetDescending`2(SampleProject.Infrastructure.Framework.Domain.IDomainService`1&lt;!!0&gt;,System.Linq.Expressions.Expression`1&lt;System.Func`2&lt;!!0,System.Boolean&gt;&gt;,System.Linq.Expressions.Expression`1&lt;System.Func`2&lt;!!0,!!1&gt;&gt;)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotNestGenericTypesInMemberSignatures" Category="Microsoft.Design" CheckId="CA1006" Status="Active" Created="2015-10-01 11:18:32Z" FixCategory="Breaking">
+             <Issue Certainty="95" Level="CriticalError" Path="C:\Dropbox\personal\Diego Giacomelli\Apps\SampleProject\src\SampleProject.Infrastructure.Framework\Domain" File="DomainServiceExtensions.cs" Line="123">Consider a design where 'DomainServiceExtensions.GetDescending&lt;TEntity, TOrderByKey&gt;(this IDomainService&lt;TEntity&gt;, Expression&lt;Func&lt;TEntity, bool&gt;&gt;, Expression&lt;Func&lt;TEntity, TOrderByKey&gt;&gt;)' doesn't nest generic type 'Expression&lt;Func&lt;TEntity, TOrderByKey&gt;&gt;'.</Issue>
+             <Issue Certainty="95" Level="CriticalError" Path="C:\Dropbox\personal\Diego Giacomelli\Apps\SampleProject\src\SampleProject.Infrastructure.Framework\Domain" File="DomainServiceExtensions.cs" Line="123">Consider a design where 'DomainServiceExtensions.GetDescending&lt;TEntity, TOrderByKey&gt;(this IDomainService&lt;TEntity&gt;, Expression&lt;Func&lt;TEntity, bool&gt;&gt;, Expression&lt;Func&lt;TEntity, TOrderByKey&gt;&gt;)' doesn't nest generic type 'Expression&lt;Func&lt;TEntity, bool&gt;&gt;'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="HistoryEntityBase`1" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.ctor(!0,SampleProject.Infrastructure.Framework.Domain.HistoryKind)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DefaultParametersShouldNotBeUsed" Category="Microsoft.Design" CheckId="CA1026" Status="Active" Created="2015-10-01 11:18:32Z" FixCategory="Breaking">
+             <Issue Certainty="75" Level="Error" Path="C:\Dropbox\personal\Diego Giacomelli\Apps\SampleProject\src\SampleProject.Infrastructure.Framework\Domain" File="HistoryEntityBase.cs" Line="60">Replace method 'HistoryEntityBase&lt;TTarget&gt;.HistoryEntityBase(TTarget, HistoryKind)' with an overload that supplies all default arguments.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="IDomainRepository`1" Kind="Interface" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#FindAll(System.Int32,System.Int32,System.Linq.Expressions.Expression`1&lt;System.Func`2&lt;!0,System.Boolean&gt;&gt;,System.Func`2&lt;System.Collections.Generic.IEnumerable`1&lt;!0&gt;,System.Collections.Generic.IEnumerable`1&lt;!0&gt;&gt;)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotNestGenericTypesInMemberSignatures" Category="Microsoft.Design" CheckId="CA1006" Status="Active" Created="2015-10-01 11:18:32Z" FixCategory="Breaking">
+             <Issue Certainty="95" Level="CriticalError">Consider a design where 'IDomainRepository&lt;TEntity&gt;.FindAll(int, int, Expression&lt;Func&lt;TEntity, bool&gt;&gt;, Func&lt;IEnumerable&lt;TEntity&gt;, IEnumerable&lt;TEntity&gt;&gt;)' doesn't nest generic type 'Expression&lt;Func&lt;TEntity, bool&gt;&gt;'.</Issue>
+             <Issue Certainty="95" Level="CriticalError">Consider a design where 'IDomainRepository&lt;TEntity&gt;.FindAll(int, int, Expression&lt;Func&lt;TEntity, bool&gt;&gt;, Func&lt;IEnumerable&lt;TEntity&gt;, IEnumerable&lt;TEntity&gt;&gt;)' doesn't nest generic type 'Func&lt;IEnumerable&lt;TEntity&gt;, IEnumerable&lt;TEntity&gt;&gt;'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="IDomainService`1" Kind="Interface" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#Get(System.Int32,System.Int32,System.Linq.Expressions.Expression`1&lt;System.Func`2&lt;!0,System.Boolean&gt;&gt;)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotNestGenericTypesInMemberSignatures" Category="Microsoft.Design" CheckId="CA1006" Status="Active" Created="2015-10-01 11:18:32Z" FixCategory="Breaking">
+             <Issue Certainty="95" Level="CriticalError">Consider a design where 'IDomainService&lt;TEntity&gt;.Get(int, int, Expression&lt;Func&lt;TEntity, bool&gt;&gt;)' doesn't nest generic type 'Expression&lt;Func&lt;TEntity, bool&gt;&gt;'.</Issue>
+            </Message>
+            <Message Id="Get" TypeName="IdentifiersShouldNotMatchKeywords" Category="Microsoft.Naming" CheckId="CA1716" Status="Active" Created="2015-10-01 11:18:32Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="95" Level="Error">Rename virtual/interface member 'IDomainService&lt;TEntity&gt;.Get(int, int, Expression&lt;Func&lt;TEntity, bool&gt;&gt;)' so that it no longer conflicts with the reserved language keyword 'Get'. Using a reserved keyword as the name of a virtual/interface member makes it harder for consumers in other languages to override/implement the member.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#GetAscending`1(System.Int32,System.Int32,System.Linq.Expressions.Expression`1&lt;System.Func`2&lt;!0,System.Boolean&gt;&gt;,System.Linq.Expressions.Expression`1&lt;System.Func`2&lt;!0,!!0&gt;&gt;)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotNestGenericTypesInMemberSignatures" Category="Microsoft.Design" CheckId="CA1006" Status="Active" Created="2015-10-01 11:18:32Z" FixCategory="Breaking">
+             <Issue Certainty="95" Level="CriticalError">Consider a design where 'IDomainService&lt;TEntity&gt;.GetAscending&lt;TOrderByKey&gt;(int, int, Expression&lt;Func&lt;TEntity, bool&gt;&gt;, Expression&lt;Func&lt;TEntity, TOrderByKey&gt;&gt;)' doesn't nest generic type 'Expression&lt;Func&lt;TEntity, TOrderByKey&gt;&gt;'.</Issue>
+             <Issue Certainty="95" Level="CriticalError">Consider a design where 'IDomainService&lt;TEntity&gt;.GetAscending&lt;TOrderByKey&gt;(int, int, Expression&lt;Func&lt;TEntity, bool&gt;&gt;, Expression&lt;Func&lt;TEntity, TOrderByKey&gt;&gt;)' doesn't nest generic type 'Expression&lt;Func&lt;TEntity, bool&gt;&gt;'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#GetDescending`1(System.Int32,System.Int32,System.Linq.Expressions.Expression`1&lt;System.Func`2&lt;!0,System.Boolean&gt;&gt;,System.Linq.Expressions.Expression`1&lt;System.Func`2&lt;!0,!!0&gt;&gt;)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotNestGenericTypesInMemberSignatures" Category="Microsoft.Design" CheckId="CA1006" Status="Active" Created="2015-10-01 11:18:32Z" FixCategory="Breaking">
+             <Issue Certainty="95" Level="CriticalError">Consider a design where 'IDomainService&lt;TEntity&gt;.GetDescending&lt;TOrderByKey&gt;(int, int, Expression&lt;Func&lt;TEntity, bool&gt;&gt;, Expression&lt;Func&lt;TEntity, TOrderByKey&gt;&gt;)' doesn't nest generic type 'Expression&lt;Func&lt;TEntity, TOrderByKey&gt;&gt;'.</Issue>
+             <Issue Certainty="95" Level="CriticalError">Consider a design where 'IDomainService&lt;TEntity&gt;.GetDescending&lt;TOrderByKey&gt;(int, int, Expression&lt;Func&lt;TEntity, bool&gt;&gt;, Expression&lt;Func&lt;TEntity, TOrderByKey&gt;&gt;)' doesn't nest generic type 'Expression&lt;Func&lt;TEntity, bool&gt;&gt;'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="IPreFilterable`1" Kind="Interface" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#PreFilter" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotNestGenericTypesInMemberSignatures" Category="Microsoft.Design" CheckId="CA1006" Status="Active" Created="2015-10-01 11:18:32Z" FixCategory="Breaking">
+             <Issue Certainty="95" Level="CriticalError">Consider a design where 'IPreFilterable&lt;TDomainEntity&gt;.PreFilter' doesn't nest generic type 'Expression&lt;Func&lt;TDomainEntity, bool&gt;&gt;'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="Money" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#Reais(System.Decimal)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="Reais" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2015-10-01 11:18:32Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning" Path="C:\Dropbox\personal\Diego Giacomelli\Apps\SampleProject\src\SampleProject.Infrastructure.Framework\Domain" File="Money.cs" Line="197">Correct the spelling of 'Reais' in member name 'Money.Reais(decimal)' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+      <Namespace Name="SampleProject.Infrastructure.Framework.Globalization">
+       <Types>
+        <Type Name="GlobalizationHelper" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#GetText(System.Boolean,System.Object,System.Object,System.Boolean)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DefaultParametersShouldNotBeUsed" Category="Microsoft.Design" CheckId="CA1026" Status="Active" Created="2015-10-01 11:18:32Z" FixCategory="Breaking">
+             <Issue Certainty="75" Level="Error" Path="C:\Dropbox\personal\Diego Giacomelli\Apps\SampleProject\src\SampleProject.Infrastructure.Framework\Globalization" File="GlobalizationHelper.cs" Line="68">Replace method 'GlobalizationHelper.GetText(bool, object, object, bool)' with an overload that supplies all default arguments.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+      <Namespace Name="SampleProject.Infrastructure.Framework.Linq">
+       <Types>
+        <Type Name="IFilterResult" Kind="Interface" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#GetEntities()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="UsePropertiesWhereAppropriate" Category="Microsoft.Design" CheckId="CA1024" Status="Active" Created="2015-10-01 11:18:32Z" FixCategory="Breaking">
+             <Issue Certainty="50" Level="Warning">Change 'IFilterResult.GetEntities()' to a property if appropriate.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+      <Namespace Name="SampleProject.Infrastructure.Framework.Runtime">
+       <Types>
+        <Type Name="IRuntimePermission" Kind="Interface" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="IdentifiersShouldNotHaveIncorrectSuffix" Category="Microsoft.Naming" CheckId="CA1711" Status="Active" Created="2015-10-01 11:18:32Z" FixCategory="Breaking">
+           <Issue Name="TypeNoAlternate" Certainty="95" Level="CriticalError">Rename type name 'IRuntimePermission' so that it does not end in 'Permission'.</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="IRuntimeUser" Kind="Interface" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#Regionals" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="Regionals" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2015-10-01 11:18:32Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning">Correct the spelling of 'Regionals' in member name 'IRuntimeUser.Regionals' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#Subregionals" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="Subregionals" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2015-10-01 11:18:32Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning">Correct the spelling of 'Subregionals' in member name 'IRuntimeUser.Subregionals' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="MemoryRuntimeUser" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#SubstituingRoleIds" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="Substituing" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2015-10-01 11:18:32Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning" Path="C:\Dropbox\personal\Diego Giacomelli\Apps\SampleProject\src\SampleProject.Infrastructure.Framework\Runtime" File="MemoryRuntimeUser.cs" Line="53">Correct the spelling of 'Substituing' in member name 'MemoryRuntimeUser.SubstituingRoleIds' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="RuntimeEnvironment" Kind="Enum" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#ContinousIntegration" Kind="Field" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="Continous" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2015-10-01 11:18:32Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning">Correct the spelling of 'Continous' in member name 'RuntimeEnvironment.ContinousIntegration' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+  <Target Name="$(ProjectDir)/SampleProject.Infrastructure.Repositories/bin/DEV/SampleProject.Infrastructure.Repositories.dll">
+   <Modules>
+    <Module Name="sampleproject.infrastructure.repositories.dll">
+     <Messages>
+      <Message TypeName="MarkAssembliesWithClsCompliant" Category="Microsoft.Design" CheckId="CA1014" Status="Active" Created="2015-10-01 11:18:32Z" FixCategory="NonBreaking">
+       <Issue Certainty="95" Level="Error">Mark 'SampleProject.Infrastructure.Repositories.dll' with CLSCompliant(true) because it exposes externally visible types.</Issue>
+      </Message>
+     </Messages>
+    </Module>
+   </Modules>
+  </Target>
+ </Targets>
+ <Rules>
+  <Rule TypeName="AvoidEmptyInterfaces" Category="Microsoft.Design" CheckId="CA1040">
+   <Name>Avoid empty interfaces</Name>
+   <Description>Interfaces are meant to contain members that specify a set of behaviors. To mark or label a class, use an attribute instead of an empty interface.</Description>
+   <Resolution Name="Default">Define a custom attribute to replace {0}.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182128(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="90">Warning</MessageLevel>
+   <File Name="DesignRules.dll" Version="10.0.0.0" />
+  </Rule>
+  <Rule TypeName="CollectionPropertiesShouldBeReadOnly" Category="Microsoft.Usage" CheckId="CA2227">
+   <Name>Collection properties should be read only</Name>
+   <Description>Properties that return collections should be read-only so that users cannot entirely replace the backing store. Users can still modify the contents of the collection by calling relevant methods on the collection. Note that the XmlSerializer class has special support for deserializing read-only collections. See the XmlSerializer overview for more information.</Description>
+   <Resolution Name="Default">Change {0} to be read-only by removing the property setter.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182327(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="75">Warning</MessageLevel>
+   <File Name="UsageRules.dll" Version="10.0.0.0" />
+  </Rule>
+  <Rule TypeName="CompoundWordsShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1702">
+   <Name>Compound words should be cased correctly</Name>
+   <Description>Avoid creating compound words from terms which exist in the dictionary as discrete terms. Do not create a compound word such as 'StopWatch' or 'PopUp'. These terms are recognized in the dictionary and should be cased as 'Stopwatch' and 'Popup'.</Description>
+   <Resolution Name="MemberShouldBeDiscreteTerm">The compound word '{0}' in member name {1} exists as a discrete term. If your usage is intended to be single word, case it as '{2}' or strip the first token entirely if it represents any sort of Hungarian notation.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/bb264474(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="80">Error</MessageLevel>
+   <File Name="NamingRules.dll" Version="10.0.0.0" />
+  </Rule>
+  <Rule TypeName="DefaultParametersShouldNotBeUsed" Category="Microsoft.Design" CheckId="CA1026">
+   <Name>Default parameters should not be used</Name>
+   <Description>Some programming languages do not support default parameters. Replace default parameters with method overloads that supply the default argument.</Description>
+   <Resolution Name="Default">Replace method {0} with an overload that supplies all default arguments.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182135(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="75">Error</MessageLevel>
+   <File Name="DesignRules.dll" Version="10.0.0.0" />
+  </Rule>
+  <Rule TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214">
+   <Name>Do not call overridable methods in constructors</Name>
+   <Description>Virtual methods defined on the class should not be called from constructors. If a derived class has overridden the method, the derived class version will be called (before the derived class constructor is called).</Description>
+   <Resolution Name="Default">{0} contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: {1}</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182331(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">CriticalWarning</MessageLevel>
+   <File Name="UsageRules.dll" Version="10.0.0.0" />
+  </Rule>
+  <Rule TypeName="DoNotDeclareStaticMembersOnGenericTypes" Category="Microsoft.Design" CheckId="CA1000">
+   <Name>Do not declare static members on generic types</Name>
+   <Description>The syntax for calling static members on generic types is complex as the type parameter has to be specified for each call.</Description>
+   <Resolution Name="Default">Remove {0} from {1} or make it an instance member.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182139(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Error</MessageLevel>
+   <File Name="DesignRules.dll" Version="10.0.0.0" />
+  </Rule>
+  <Rule TypeName="DoNotNestGenericTypesInMemberSignatures" Category="Microsoft.Design" CheckId="CA1006">
+   <Name>Do not nest generic types in member signatures</Name>
+   <Description>Avoid API that require users to instantiate a generic type with another generic type as type argument. The syntax gets too complex.</Description>
+   <Resolution Name="Default">Consider a design where {0} doesn't nest generic type {1}.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182144(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">CriticalError</MessageLevel>
+   <File Name="DesignRules.dll" Version="10.0.0.0" />
+  </Rule>
+  <Rule TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704">
+   <Name>Identifiers should be spelled correctly</Name>
+   <Description>The individual words that make up an identifier should not be abbreviated and should be spelled correctly. If this rule generates a false positive on a term that should be recognized, add the word to the FxCop custom dictionary.</Description>
+   <Resolution Name="Member">Correct the spelling of '{0}' in member name {1} or remove it entirely if it represents any sort of Hungarian notation.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/bb264492(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="75">CriticalWarning</MessageLevel>
+   <File Name="NamingRules.dll" Version="10.0.0.0" />
+  </Rule>
+  <Rule TypeName="IdentifiersShouldNotHaveIncorrectSuffix" Category="Microsoft.Naming" CheckId="CA1711">
+   <Name>Identifiers should not have incorrect suffix</Name>
+   <Description>Types that do not extend certain base types should not use reserved name suffixes. Types and members should not use 'Ex' or 'New' to distinguish them from an earlier version of the same API, instead, use a numeric suffix such as '2' or provide a more meaningful suffix. Concrete type implementations and members should not end 'Impl'. Members instead, should either consider using the suggested alternate 'Core' in replacement of 'Impl' or avoid any suffix at all.</Description>
+   <Resolution Name="TypeNoAlternate">Rename type name {0} so that it does not end in '{1}'.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182247(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">CriticalError</MessageLevel>
+   <File Name="NamingRules.dll" Version="10.0.0.0" />
+  </Rule>
+  <Rule TypeName="IdentifiersShouldNotMatchKeywords" Category="Microsoft.Naming" CheckId="CA1716">
+   <Name>Identifiers should not match keywords</Name>
+   <Description>Identifiers which conflict with reserved language keywords should be avoided. Using a reserved keyword as an identifier makes it harder for consumers in other languages to use your API.</Description>
+   <Resolution Name="Member">Rename virtual/interface member {0} so that it no longer conflicts with the reserved language keyword '{1}'. Using a reserved keyword as the name of a virtual/interface member makes it harder for consumers in other languages to override/implement the member.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182248(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Error</MessageLevel>
+   <File Name="NamingRules.dll" Version="10.0.0.0" />
+  </Rule>
+  <Rule TypeName="InterfaceMethodsShouldBeCallableByChildTypes" Category="Microsoft.Design" CheckId="CA1033">
+   <Name>Interface methods should be callable by child types</Name>
+   <Description>Explicit method implementations are defined with private accessibility. Classes that derive from classes with explicit method implementations and choose to re-declare them on the class will not be able to call into the base class implementation unless the base class has provided an alternate method with appropriate accessibility. When overriding a base class method that has been hidden by explicit interface implementation, in order to call into the base class implementation, a derived class must cast the base pointer to the relevant interface. When calling through this reference, however, the derived class implementation will actually be invoked, resulting in recursion and an eventual stack overflow.</Description>
+   <Resolution Name="Default">Make {0} sealed (a breaking change if this class has previously shipped), implement the method non-explicitly, or implement a new method that exposes the functionality of {1} and is visible to derived classes.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182153(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Error</MessageLevel>
+   <File Name="DesignRules.dll" Version="10.0.0.0" />
+  </Rule>
+  <Rule TypeName="MarkAssembliesWithClsCompliant" Category="Microsoft.Design" CheckId="CA1014">
+   <Name>Mark assemblies with CLSCompliantAttribute</Name>
+   <Description>Assemblies should explicitly state their CLS compliance using the CLSCompliant attribute. An assembly without this attribute is not CLS-compliant. Assemblies, modules, and types can be CLS-compliant even if some parts of the assembly, module, or type are not CLS-compliant. The following rules apply: 1) If the element is marked CLSCompliant, any noncompliant members must have the CLSCompliant attribute present with its argument set to false. 2) A comparable CLS-compliant alternative member must be supplied for each member that is not CLS-compliant.</Description>
+   <Resolution Name="Default">Mark {0} with CLSCompliant(true) because it exposes externally visible types.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182156(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Error</MessageLevel>
+   <File Name="DesignRules.dll" Version="10.0.0.0" />
+  </Rule>
+  <Rule TypeName="MarkAssembliesWithNeutralResourcesLanguage" Category="Microsoft.Performance" CheckId="CA1824">
+   <Name>Mark assemblies with NeutralResourcesLanguageAttribute</Name>
+   <Description>The NeutralResourcesLanguage attribute informs the ResourceManager of the language used to render the neutral culture's resources for an assembly. When looking up resources in the same culture as the neutral resources language, the ResourceManager automatically uses the resources located in the main assembly, instead of searching for a satellite assembly with the current user interface culture for the current thread. This will improve lookup performance for the first resource you load and can reduce your working set.</Description>
+   <Resolution Name="Default">Because assembly {0} contains a ResX-based resource file, mark it with the NeutralResourcesLanguage attribute, specifying the language of the resources within the assembly. This could improve lookup performance the first time a resource is retrieved.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/bb385967(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Warning</MessageLevel>
+   <File Name="PerformanceRules.dll" Version="10.0.0.0" />
+  </Rule>
+  <Rule TypeName="NormalizeStringsToUppercase" Category="Microsoft.Globalization" CheckId="CA1308">
+   <Name>Normalize strings to uppercase</Name>
+   <Description>Strings should be normalized to upper-case.</Description>
+   <Resolution Name="ToUpperInvariant">In method {0}, replace the call to {1} with String.ToUpperInvariant().</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/bb386042(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="90">Error</MessageLevel>
+   <File Name="GlobalizationRules.dll" Version="10.0.0.0" />
+  </Rule>
+  <Rule TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801">
+   <Name>Review unused parameters</Name>
+   <Description>Review parameters in non-virtual methods that are not used in the method body to ensure no correctness exists around failure to access them. Unused parameters incur maintenance and performance costs. Sometimes a violation of this rule can point to an implementation bug in the method (i.e. the parameter should actually have been used in the method body). Exclude warnings of this rule if the parameter has to exist because of backward compatibility.</Description>
+   <Resolution Name="Default">Parameter {0} of {1} is never used. Remove the parameter or use it in the method body.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182268(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Warning</MessageLevel>
+   <File Name="UsageRules.dll" Version="10.0.0.0" />
+  </Rule>
+  <Rule TypeName="UsePropertiesWhereAppropriate" Category="Microsoft.Design" CheckId="CA1024">
+   <Name>Use properties where appropriate</Name>
+   <Description>Properties should be used instead of Get/Set methods in most situations. Methods are preferable to properties in the following situations: the operation is a conversion, is expensive or has an observable side-effect; the order of execution is important; calling the member twice in succession creates different results; a member is static but returns a mutable value; or the member returns an array.</Description>
+   <Resolution Name="Default">Change {0} to a property if appropriate.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182181(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="75">Warning</MessageLevel>
+   <File Name="DesignRules.dll" Version="10.0.0.0" />
+  </Rule>
+ </Rules>
+ <Localized>
+  <String Key="Category">Category</String>
+  <String Key="Certainty">Certainty</String>
+  <String Key="CollapseAll">Collapse All</String>
+  <String Key="CheckId">Check Id</String>
+  <String Key="Error">Error</String>
+  <String Key="Errors">error(s)</String>
+  <String Key="ExpandAll">Expand All</String>
+  <String Key="Help">Help</String>
+  <String Key="Line">Line</String>
+  <String Key="Messages">message(s)</String>
+  <String Key="LocationNotStoredInPdb">[Location not stored in Pdb]</String>
+  <String Key="Project">Project</String>
+  <String Key="Resolution">Resolution</String>
+  <String Key="Rule">Rule</String>
+  <String Key="RuleFile">Rule File</String>
+  <String Key="RuleDescription">Rule Description</String>
+  <String Key="Source">Source</String>
+  <String Key="Status">Status</String>
+  <String Key="Target">Target</String>
+  <String Key="Warning">Warning</String>
+  <String Key="Warnings">warning(s)</String>
+  <String Key="ReportTitle">Code Analysis Report</String>
+ </Localized>
+</FxCopReport>

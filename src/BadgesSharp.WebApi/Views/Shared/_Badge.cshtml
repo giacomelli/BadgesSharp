@@ -1,0 +1,41 @@
+﻿@model BadgesSharp.WebApi.Models.BadgePageViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var generateCommand = "BadgesSharpCmd -o [your GitHub username] -r [your GitHub project] -a %GITHUB_REPO_TOKEN% -b " + @Model.Badge + " -c " + @Model.Report; 
+}
+
+<div class="jumbotron">
+    <h2>@Model.Title</h2>
+    <p class="lead">@Model.Description.</p>
+    <p class="lead"><a href="@Model.Url">@Model.Url</a></p>
+    <img src="https://badgessharp.apphb.com/badges/giacomelli/BadgesSharp/@Model.Badge" />
+</div>
+<h3>Install @Model.Title</h3>
+@RenderSection("Install")
+
+<h3>Run @Model.Title</h3>
+<pre>@Model.RunCommand</pre>
+<p>
+    The report will be save to @Model.Report
+</p>
+
+
+<h3>Generate @Model.Title badge</h3>
+<pre>@generateCommand</pre>
+
+<h3>Show the badge at your GitHub repository</h3>
+Edit your readme.md and add the line below:<br />
+
+<pre>![@Model.Title](https://badgessharp.apphb.com/badges/[your GitHub username]/[your GitHub project]/@Model.Badge)</pre>
+
+<h3>How use it on your Continuous Integration?<h3>
+<h4>AppVeyor</h4>
+<p>Add to your AppVeyor.yml file:</p>
+<pre>after_build:
+        - cmd: >
+        @Model.RunCommand
+
+        @generateCommand
+</pre>
+
+@RenderBody()

@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DuplicatesReport ToolsVersion="8.2">
+  <Statistics>
+    <CodebaseCost>54801</CodebaseCost>
+    <TotalDuplicatesCost>479</TotalDuplicatesCost>
+    <TotalFragmentsCost>1177</TotalFragmentsCost>
+  </Statistics>
+  <Duplicates>
+    <Duplicate Cost="134">
+      <Fragment>
+        <FileName>..\src\SampleProject.WebApi\App_Start\IdentityConfig.cs</FileName>
+        <OffsetRange Start="727" End="1465" />
+        <LineRange Start="20" End="35" />
+        <Text>var manager = new ApplicationUserManager(new UserStore&lt;ApplicationUser&gt;(context.Get&lt;ApplicationDbContext&gt;()));
+            // Configure validation logic for usernames
+            manager.UserValidator = new UserValidator&lt;ApplicationUser&gt;(manager)
+            {
+                AllowOnlyAlphanumericUserNames = false,
+                RequireUniqueEmail = true
+            };
+            // Configure validation logic for passwords
+            manager.PasswordValidator = new PasswordValidator
+            {
+                RequiredLength = 6,
+                RequireNonLetterOrDigit = true,
+                RequireDigit = true,
+                RequireLowercase = true,
+                RequireUppercase = true,
+            };</Text>
+      </Fragment>
+      <Fragment>
+        <FileName>..\src\SampleProject.WebApp\App_Start\IdentityConfig.cs</FileName>
+        <OffsetRange Start="1350" End="2090" />
+        <LineRange Start="41" End="57" />
+        <Text>var manager = new ApplicationUserManager(new UserStore&lt;ApplicationUser&gt;(context.Get&lt;ApplicationDbContext&gt;()));
+            // Configure validation logic for usernames
+            manager.UserValidator = new UserValidator&lt;ApplicationUser&gt;(manager)
+            {
+                AllowOnlyAlphanumericUserNames = false,
+                RequireUniqueEmail = true
+            };
+
+            // Configure validation logic for passwords
+            manager.PasswordValidator = new PasswordValidator
+            {
+                RequiredLength = 6,
+                RequireNonLetterOrDigit = true,
+                RequireDigit = true,
+                RequireLowercase = true,
+                RequireUppercase = true,
+            };</Text>
+      </Fragment>
+    </Duplicate>
+    <Duplicate Cost="92">
+      <Fragment>
+        <FileName>..\src\SampleProject.WebApi\Areas\HelpPage\SampleGeneration\HelpPageSampleGenerator.cs</FileName>
+        <OffsetRange Start="4322" End="4622" />
+        <LineRange Start="96" End="99" />
+        <Text>string controllerName = api.ActionDescriptor.ControllerDescriptor.ControllerName;
+            string actionName = api.ActionDescriptor.ActionName;
+            IEnumerable&lt;string&gt; parameterNames = api.ParameterDescriptions.Select(p =&gt; p.Name);
+            Collection&lt;MediaTypeFormatter&gt; formatters;</Text>
+      </Fragment>
+      <Fragment>
+        <FileName>..\src\SampleProject.WebApi\Areas\HelpPage\SampleGeneration\HelpPageSampleGenerator.cs</FileName>
+        <OffsetRange Start="10933" End="11233" />
+        <LineRange Start="217" End="220" />
+        <Text>string controllerName = api.ActionDescriptor.ControllerDescriptor.ControllerName;
+            string actionName = api.ActionDescriptor.ActionName;
+            IEnumerable&lt;string&gt; parameterNames = api.ParameterDescriptions.Select(p =&gt; p.Name);
+            Collection&lt;MediaTypeFormatter&gt; formatters;</Text>
+      </Fragment>
+    </Duplicate>
+    <Duplicate Cost="91">
+      <Fragment>
+        <FileName>..\src\SampleProject.WebApi\App_Start\RouteConfig.cs</FileName>
+        <OffsetRange Start="84" End="519" />
+        <LineRange Start="5" End="19" />
+        <Text>{
+    public class RouteConfig
+    {
+        public static void RegisterRoutes(RouteCollection routes)
+        {
+            routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+
+            routes.MapRoute(
+                name: "Default",
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+            );
+        }
+    }
+}</Text>
+      </Fragment>
+      <Fragment>
+        <FileName>..\src\SampleProject.WebApp\App_Start\RouteConfig.cs</FileName>
+        <OffsetRange Start="84" End="519" />
+        <LineRange Start="5" End="19" />
+        <Text>{
+    public class RouteConfig
+    {
+        public static void RegisterRoutes(RouteCollection routes)
+        {
+            routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+
+            routes.MapRoute(
+                name: "Default",
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+            );
+        }
+    }
+}</Text>
+      </Fragment>
+    </Duplicate>
+    <Duplicate Cost="89">
+      <Fragment>
+        <FileName>..\src\SampleProject.WebApp\Controllers\ManageController.cs</FileName>
+        <OffsetRange Start="5101" End="5390" />
+        <LineRange Start="139" End="144" />
+        <Text>var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
+            if (user != null)
+            {
+                await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+            }
+            return RedirectToAction("Index", "Manage");</Text>
+      </Fragment>
+      <Fragment>
+        <FileName>..\src\SampleProject.WebApp\Controllers\ManageController.cs</FileName>
+        <OffsetRange Start="5718" End="6007" />
+        <LineRange Start="154" End="159" />
+        <Text>var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
+            if (user != null)
+            {
+                await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+            }
+            return RedirectToAction("Index", "Manage");</Text>
+      </Fragment>
+    </Duplicate>
+    <Duplicate Cost="73">
+      <Fragment>
+        <FileName>..\src\SampleProject.WebApp\Controllers\ManageController.cs</FileName>
+        <OffsetRange Start="3189" End="3437" />
+        <LineRange Start="87" End="91" />
+        <Text>var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
+                if (user != null)
+                {
+                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                }</Text>
+      </Fragment>
+      <Fragment>
+        <FileName>..\src\SampleProject.WebApp\Controllers\ManageController.cs</FileName>
+        <OffsetRange Start="7018" End="7266" />
+        <LineRange Start="184" End="188" />
+        <Text>var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
+                if (user != null)
+                {
+                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                }</Text>
+      </Fragment>
+      <Fragment>
+        <FileName>..\src\SampleProject.WebApp\Controllers\ManageController.cs</FileName>
+        <OffsetRange Start="7964" End="8196" />
+        <LineRange Start="205" End="209" />
+        <Text>var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
+            if (user != null)
+            {
+                await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+            }</Text>
+      </Fragment>
+      <Fragment>
+        <FileName>..\src\SampleProject.WebApp\Controllers\ManageController.cs</FileName>
+        <OffsetRange Start="8970" End="9218" />
+        <LineRange Start="233" End="237" />
+        <Text>var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
+                if (user != null)
+                {
+                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                }</Text>
+      </Fragment>
+      <Fragment>
+        <FileName>..\src\SampleProject.WebApp\Controllers\ManageController.cs</FileName>
+        <OffsetRange Start="10005" End="10269" />
+        <LineRange Start="262" End="266" />
+        <Text>var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
+                    if (user != null)
+                    {
+                        await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                    }</Text>
+      </Fragment>
+    </Duplicate>
+  </Duplicates>
+</DuplicatesReport>
