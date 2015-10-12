@@ -24,15 +24,15 @@ after_build:
 - cmd: >-    
     "C:\Program Files (x86)\Microsoft Fxcop 10.0\FxCopCmd.exe" /project:.\src\BadgesSharp.FxCop /out:.\tools\fxcop-report.xml
     
-    .\tools\BadgesSharpCmd.exe -o giacomelli -r BadgesSharp -b FxCop -c ".\tools\fxcop-report.xml" -a %GITHUB_PERSONAL_ACCESS_TOKEN%
+    .\src\BadgesSharpCmd\bin\Release\BadgesSharpCmd.exe -o giacomelli -r BadgesSharp -b FxCop -c ".\tools\fxcop-report.xml" -a %GITHUB_PERSONAL_ACCESS_TOKEN%
     
     .\tools\StyleCopCmd\Net.SF.StyleCopCmd.Console\StyleCopCmd.exe -sf .\src\BadgesSharp.sln --styleCopSettingsFile .\src\Settings.StyleCop -of .\tools\stylecop-report.xml --ignoreFilePattern .+Test\.cs
     
-    .\tools\BadgesSharpCmd.exe -o giacomelli -r BadgesSharp -b StyleCop -c ".\tools\stylecop-report.violations.xml" -a %GITHUB_PERSONAL_ACCESS_TOKEN%
+    .\src\BadgesSharpCmd\bin\Release\BadgesSharpCmd.exe -o giacomelli -r BadgesSharp -b StyleCop -c ".\tools\stylecop-report.violations.xml" -a %GITHUB_PERSONAL_ACCESS_TOKEN%
     
     C:\ProgramData\chocolatey\lib\resharper-clt.portable\tools\dupfinder.exe /output=.\tools\dupFinder-Report.xml /show-text /exclude=**\*Test.cs;**\*.feature.cs;**\BundleConfig.cs .\src\BadgesSharp.sln
     
-    .\tools\BadgesSharpCmd.exe -o giacomelli -r BadgesSharp -b DupFinder -c .\tools\dupFinder-Report.xml -a %GITHUB_PERSONAL_ACCESS_TOKEN%
+    .\\src\BadgesSharpCmd\bin\Release\BadgesSharpCmd.exe -o giacomelli -r BadgesSharp -b DupFinder -c .\tools\dupFinder-Report.xml -a %GITHUB_PERSONAL_ACCESS_TOKEN%
 
 test_script:
 - ps: >-
