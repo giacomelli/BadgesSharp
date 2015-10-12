@@ -1,6 +1,6 @@
 BadgesSharp
 ===========
-[![License](http://img.shields.io/:license-MIT-blue.svg)](https://raw.githubusercontent.com/giacomelli/BadgesSharp/master/LICENSE)
+[![Build status](https://ci.appveyor.com/api/projects/status/3xor12cgq7xsl51i/branch/master?svg=true)](https://ci.appveyor.com/project/giacomelli/badgessharp/branch/master)[![License](http://img.shields.io/:license-MIT-blue.svg)](https://raw.githubusercontent.com/giacomelli/BadgesSharp/master/LICENSE)
 
 
 BadgesSharp is a free service to generate badges that need some kind of input and processing before you can display them on GitHub repositories:
