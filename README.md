@@ -11,13 +11,17 @@ BadgesSharp is a free service to generate badges that need some kind of input an
 
 Badges
 ===
-DupFinder: [![DupFinder](https://badgessharp.apphb.com/badges/giacomelli/BadgesSharp/DupFinder)](https://badgessharp.apphb.com/badges/giacomelli/BadgesSharp/DupFinder)
+#####DupFinder
+[![DupFinder](https://badgessharp.apphb.com/badges/giacomelli/BadgesSharp/DupFinder)](https://badgessharp.apphb.com/badges/giacomelli/BadgesSharp/DupFinder)
 
-FxCop: [![FxCop](https://badgessharp.apphb.com/badges/giacomelli/BadgesSharp/FxCop)](https://badgessharp.apphb.com/badges/giacomelli/BadgesSharp/FxCop)
+#####FxCop
+[![FxCop](https://badgessharp.apphb.com/badges/giacomelli/BadgesSharp/FxCop)](https://badgessharp.apphb.com/badges/giacomelli/BadgesSharp/FxCop)
 
-Plato: [![Plato](https://badgessharp.apphb.com/badges/giacomelli/BadgesSharp/Plato)](https://badgessharp.apphb.com/badges/giacomelli/BadgesSharp/Plato)
+#####Plato
+[![Plato](https://badgessharp.apphb.com/badges/giacomelli/BadgesSharp/PlatoMaintainability)](https://badgessharp.apphb.com/badges/giacomelli/BadgesSharp/PlatoMaintainability)
 
-StyleCop: [![StyleCop](https://badgessharp.apphb.com/badges/giacomelli/BadgesSharp/StyleCop)](https://badgessharp.apphb.com/badges/giacomelli/BadgesSharp/StyleCop)
+#####StyleCop
+[![StyleCop](https://badgessharp.apphb.com/badges/giacomelli/BadgesSharp/StyleCop)](https://badgessharp.apphb.com/badges/giacomelli/BadgesSharp/StyleCop)
 
 
 
