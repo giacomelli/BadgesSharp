@@ -20,7 +20,7 @@ namespace BadgesSharpCmd
         {
             var currentPattern = subfolders[currentSubfolderIndex];
 
-            if (!firstFolder.EndsWith("\\"))
+            if (!firstFolder.EndsWith("\\", StringComparison.OrdinalIgnoreCase))
             {
                 firstFolder += Path.DirectorySeparatorChar;
             }
