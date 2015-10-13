@@ -22,7 +22,7 @@ build:
 
 after_build:
 - cmd: >-    
-    rem "C:\Program Files (x86)\Microsoft Fxcop 10.0\FxCopCmd.exe" /project:.\src\BadgesSharp.FxCop /out:.\tools\fxcop-report.xml
+    "C:\Program Files (x86)\Microsoft Fxcop 10.0\FxCopCmd.exe" /project:.\src\BadgesSharp.FxCop /out:.\tools\fxcop-report.xml
     
     .\src\BadgesSharpCmd\bin\Release\BadgesSharpCmd.exe -o giacomelli -r BadgesSharp -b FxCop -c ".\tools\fxcop-report.xml" -a %GITHUB_PERSONAL_ACCESS_TOKEN%
     
@@ -32,11 +32,11 @@ after_build:
     
     C:\ProgramData\chocolatey\lib\resharper-clt.portable\tools\dupfinder.exe /output=.\tools\dupFinder-Report.xml /show-text /exclude=**\*Test.cs;**\*.feature.cs;**\BundleConfig.cs .\src\BadgesSharp.sln
     
-    .\\src\BadgesSharpCmd\bin\Release\BadgesSharpCmd.exe -o giacomelli -r BadgesSharp -b DupFinder -c .\tools\dupFinder-Report.xml -a %GITHUB_PERSONAL_ACCESS_TOKEN%
+    .\src\BadgesSharpCmd\bin\Release\BadgesSharpCmd.exe -o giacomelli -r BadgesSharp -b DupFinder -c .\tools\dupFinder-Report.xml -a %GITHUB_PERSONAL_ACCESS_TOKEN%
 
 test_script:
 - ps: >-
-    .\src\packages\OpenCover.4.6.166\tools\OpenCover.Console.exe -register:user -target:nunit-console.exe -register:user "-targetargs:""src\BadgesSharp.Domain.UnitTests\bin\$env:CONFIGURATION\BadgesSharp.Domain.UnitTests.dll","src\BadgesSharp.Extensions.UnitTests\bin\$env:CONFIGURATION\BadgesSharp.Extensions.UnitTests.dll","src\BadgesSharp.Infrastructure.Framework.UnitTests\bin\$env:CONFIGURATION\BadgesSharp.Infrastructure.Framework.UnitTests.dll","src\BadgesSharp.Infrastructure.Threading.UnitTests\bin\$env:CONFIGURATION\BadgesSharp.Infrastructure.Threading.UnitTests.dll"" /noshadow" -filter:"+[BadgesSharp.Domain]* +[BadgesSharp.Extensions]* +[BadgesSharp.Infrastructure.Framework]* +[BadgesSharp.Infrastructure.Threading]*" -output:opencoverCoverage.xml
+    .\src\packages\OpenCover.4.6.166\tools\OpenCover.Console.exe -register:user -target:nunit-console.exe -register:user "-targetargs:""src\BadgesSharp.UnitTests\bin\$env:CONFIGURATION\BadgesSharp.UnitTests.dll"" /noshadow" -filter:"+[BadgesSharp]*" -output:opencoverCoverage.xml
 
     .\src\packages\coveralls.net.0.6.0\tools\csmacnz.Coveralls.exe --opencover -i opencoverCoverage.xml --repoToken $env:COVERALLS_REPO_TOKEN --commitId $env:APPVEYOR_REPO_COMMIT --commitBranch $env:APPVEYOR_REPO_BRANCH --commitAuthor $env:APPVEYOR_REPO_COMMIT_AUTHOR --commitEmail $env:APPVEYOR_REPO_COMMIT_AUTHOR_EMAIL --commitMessage $env:APPVEYOR_REPO_COMMIT_MESSAGE --jobId $env:APPVEYOR_JOB_ID
 artifacts:
