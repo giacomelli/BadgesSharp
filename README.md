@@ -1,6 +1,7 @@
 BadgesSharp
 ===========
 [![Build status](https://ci.appveyor.com/api/projects/status/3xor12cgq7xsl51i/branch/master?svg=true)](https://ci.appveyor.com/project/giacomelli/badgessharp/branch/master)
+[![Coverage Status](https://coveralls.io/repos/giacomelli/BadgesSharp/badge.svg?branch=master&service=github)](https://coveralls.io/github/giacomelli/BadgesSharp?branch=master)
 [![License](http://img.shields.io/:license-MIT-blue.svg)](https://raw.githubusercontent.com/giacomelli/BadgesSharp/master/LICENSE)
 
 
