@@ -3,7 +3,6 @@ using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using System.Net;
-using System.Text.RegularExpressions;
 using BadgesSharp.Infrastructure;
 using HelperSharp;
 using Mono.Options;
@@ -99,6 +98,7 @@ namespace BadgesSharpCmd
             };
         }
 
+        [SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes", Justification = "All errors should be write to console.")]
         private static bool ParseArguments(OptionSet optionsSet, string[] args)
         {
             try
@@ -142,7 +142,7 @@ namespace BadgesSharpCmd
 
                     if (contentFilename.Contains("*"))
                     {
-                        Show("Using wildcards to find content file. The first file found will be used.");                        
+                        Show("Using wildcards to find content file. The first file found will be used.");
                         var file = IOHelper.GetFirstFile(contentFilename);
 
                         if (file != null)

@@ -25,7 +25,15 @@ namespace BadgesSharp.Builders
         }
         #endregion
 
-        #region Properties        
+        #region Properties   
+        /// <summary>
+        /// Gets or sets the status.
+        /// </summary>
+        /// <value>
+        /// The status.
+        /// </value>
+        public BadgeStatus Status { get; set; }
+
         /// <summary>
         /// Gets or sets the style.
         /// </summary>
@@ -44,14 +52,6 @@ namespace BadgesSharp.Builders
         {
             get; private set;
         }
-
-        /// <summary>
-        /// Gets or sets the status.
-        /// </summary>
-        /// <value>
-        /// The status.
-        /// </value>
-        protected virtual BadgeStatus Status { get; set; }
 
         /// <summary>
         /// Gets the text arguments.

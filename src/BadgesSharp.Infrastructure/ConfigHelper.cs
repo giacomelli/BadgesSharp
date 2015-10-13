@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BadgesSharp.Infrastructure
 {
@@ -49,29 +46,29 @@ namespace BadgesSharp.Infrastructure
             }
         }
 
-		/// <summary>
-		/// Gets the Parse application id.
-		/// </summary>
-		/// <value>The id.</value>
-		public static string ParseApplicationId
-		{
-			get
-			{
-				return Get("ParseApplicationId");
-			}
-		}
+        /// <summary>
+        /// Gets the Parse application id.
+        /// </summary>
+        /// <value>The id.</value>
+        public static string ParseApplicationId
+        {
+            get
+            {
+                return Get("ParseApplicationId");
+            }
+        }
 
-		/// <summary>
-		/// Gets the Pars .NET key.
-		/// </summary>
-		/// <value>The key.</value>
-		public static string ParseDotNetKey
-		{
-			get
-			{
-				return Get("ParseDotNetKey");
-			}
-		}
+        /// <summary>
+        /// Gets the Pars .NET key.
+        /// </summary>
+        /// <value>The key.</value>
+        public static string ParseDotNetKey
+        {
+            get
+            {
+                return Get("ParseDotNetKey");
+            }
+        }
 
         /// <summary>
         /// Gets the GitHub access token.
@@ -108,10 +105,10 @@ namespace BadgesSharp.Infrastructure
         /// <returns>The value.</returns>
         private static string Get(string key)
         {
-			var appSettigs = ConfigurationManager.AppSettings;
+            var appSettigs = ConfigurationManager.AppSettings;
             var fromConfig = appSettigs[key];
 
-			if (string.Equals(fromConfig, "{ENV}", StringComparison.OrdinalIgnoreCase) || !appSettigs.AllKeys.Contains(key))
+            if (string.Equals(fromConfig, "{ENV}", StringComparison.OrdinalIgnoreCase) || !appSettigs.AllKeys.Contains(key))
             {
                 return Environment.GetEnvironmentVariable("BadgesSharp_" + key);
             }

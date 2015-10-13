@@ -1,11 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Http;
 using BadgesSharp.Builders;
-using BadgesSharp.Infrastructure;
 using BadgesSharp.Infrastructure.Repositories;
 using BadgesSharp.Infrastructure.Security;
 using BadgesSharp.WebApi.App_Start;
@@ -32,7 +32,7 @@ namespace BadgesSharp.WebApi.Controllers
         public BadgeController()
         {
             m_unitOfWork = new MemoryUnitOfWork();
-			m_badgeService = new BadgeService(new ParseRepository<Badge>(m_unitOfWork), m_unitOfWork);
+            m_badgeService = new BadgeService(new ParseRepository<Badge>(m_unitOfWork), m_unitOfWork);
         }
         #endregion
 
@@ -55,6 +55,14 @@ namespace BadgesSharp.WebApi.Controllers
             response.Content = new StringContent(badge.Svg, Encoding.UTF8, "image/svg+xml");
 
             return response;
+        }
+
+        [HttpGet]
+        [CacheOutput(ServerTimeSpan = int.MaxValue)]
+        [Route("badges/available")]
+        public IList<string> GetAvailableBadges()
+        {
+            return BuilderService.AvailableBadgesNames;
         }
 
         /// <summary>
@@ -118,6 +126,30 @@ namespace BadgesSharp.WebApi.Controllers
         }
 
         /// <summary>
+        /// Generates the Code Coverage badge.
+        /// </summary>
+        /// <param name="badge">The badge.</param>
+        /// <returns>The task.</returns>
+        [HttpPost]
+        [Route("badges/CodeCoverage")]
+        public async Task CodeCoverage(BadgeViewModel badge)
+        {
+            await GenerateBadgeWithAuth(badge, new CodeCoverageBadgeBuilder(badge.Content));
+        }
+
+        /// <summary>
+        /// Generates the LOC badge.
+        /// </summary>
+        /// <param name="badge">The badge.</param>
+        /// <returns>The task.</returns>
+        [HttpPost]
+        [Route("badges/Loc")]
+        public async Task Loc(BadgeViewModel badge)
+        {
+            await GenerateBadgeWithAuth(badge, new LocBadgeBuilder(badge.Content));
+        }
+
+        /// <summary>
         /// Gets the generated badges badge.
         /// </summary>
         /// <returns>The badge.</returns>
@@ -126,13 +158,14 @@ namespace BadgesSharp.WebApi.Controllers
         [Route("badges/generated/total")]
         public HttpResponseMessage GetGeneratedBadgesBadge()
         {
-			var badge = new Badge () {
-				Owner = "giacomelli", 
-				Repository = "BadgesSharp",
-				Name = "TotalGeneratedBadges"
-			};
+            var badge = new Badge()
+            {
+                Owner = "giacomelli",
+                Repository = "BadgesSharp",
+                Name = "TotalGeneratedBadges"
+            };
 
-			GenerateBadge (badge, new TotalGeneratedBadgesBadgeBuilder (m_badgeService));
+            GenerateBadge(badge, new TotalGeneratedBadgesBadgeBuilder(m_badgeService));
 
             return Get(badge.Owner, badge.Repository, badge.Name);
         }
@@ -162,10 +195,10 @@ namespace BadgesSharp.WebApi.Controllers
 
         private void GenerateBadge(Badge badge, IBadgeSvgBuilder builder)
         {
-			var oldBadge = m_badgeService.GetBadge (badge.Owner, badge.Repository, badge.Name);
+            var oldBadge = m_badgeService.GetBadge(badge.Owner, badge.Repository, badge.Name);
 
-			badge.Id = oldBadge.Id;
-			badge.Svg = builder.Build();
+            badge.Id = oldBadge.Id;
+            badge.Svg = builder.Build();
             m_badgeService.SaveBadge(badge);
             m_unitOfWork.Commit();
 

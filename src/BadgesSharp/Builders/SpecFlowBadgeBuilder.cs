@@ -3,7 +3,7 @@
     /// <summary>
     /// The SpecFlow badge builder.
     /// </summary>
-    public class SpecFlowBadgeBuilder : BadgeBuilderBase
+    public sealed class SpecFlowBadgeBuilder : BadgeBuilderBase
     {
         #region Constructors        
         /// <summary>

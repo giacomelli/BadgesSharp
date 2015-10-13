@@ -3,7 +3,7 @@
     /// <summary>
     /// The FxCop badge builder.
     /// </summary>
-    public class FxCopBadgeBuilder : XmlReportBadgeBuilderBase
+    public class FxCopBadgeBuilder : XmlReportViolationBadgeBuilderBase
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="FxCopBadgeBuilder"/> class.

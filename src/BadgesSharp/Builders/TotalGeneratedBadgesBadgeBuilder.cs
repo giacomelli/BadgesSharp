@@ -8,7 +8,7 @@ namespace BadgesSharp.Builders
     /// It's a special badge used on BadgesSharp site and repository.
     /// </remarks>
     /// </summary>
-    public class TotalGeneratedBadgesBadgeBuilder : BadgeBuilderBase
+    public sealed class TotalGeneratedBadgesBadgeBuilder : BadgeBuilderBase
     {
         #region Constructors        
         /// <summary>

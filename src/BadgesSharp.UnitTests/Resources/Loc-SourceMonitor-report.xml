@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+
+<sourcemonitor_metrics>
+  <project version="3.5">
+    <project_name>Test</project_name>
+    <project_directory>C:\test</project_directory>
+    <project_language>C#</project_language>
+    <ignore_headers_footers>false</ignore_headers_footers>
+    <export_raw_numbers>false</export_raw_numbers>
+    <metric_names name_count="15">
+      <metric_name id="M0" type="number">Lines</metric_name>
+      <metric_name id="M1" type="number">Statements</metric_name>
+      <metric_name id="M2" type="percent" divisor="M0">Percent Comment Lines</metric_name>
+      <metric_name id="M3" type="percent" divisor="M0">Percent Documentation Lines</metric_name>
+      <metric_name id="M4" type="number">Classes, Interfaces, Structs</metric_name>
+      <metric_name id="M5" type="ratio" divisor="M4">Methods per Class</metric_name>
+      <metric_name id="M6" type="ratio" divisor="M5">Calls per Method</metric_name>
+      <metric_name id="M7" type="ratio" divisor="M5">Statements per Method</metric_name>
+      <metric_name id="M8" type="string">Line Number of Most Complex Method</metric_name>
+      <metric_name id="M9" type="string">Name of Most Complex Method</metric_name>
+      <metric_name id="M10" type="maximum">Maximum Complexity</metric_name>
+      <metric_name id="M11" type="string">Line Number of Deepest Block</metric_name>
+      <metric_name id="M12" type="maximum">Maximum Block Depth</metric_name>
+      <metric_name id="M13" type="average" values="block_depths">Average Block Depth</metric_name>
+      <metric_name id="M14" type="average">Average Complexity</metric_name>
+    </metric_names>
+    <checkpoints checkpoint_count="1">
+      <checkpoint checkpoint_name="Checkpoint2" checkpoint_date="2015-10-13" ignore_blank_lines="true" modified_complexity="false" checkpoint_files="440">
+        <metrics metric_count="15">
+          <metric id="M0">26276</metric>
+          <metric id="M1">11148</metric>
+          <metric id="M2">1,3</metric>
+          <metric id="M3">25,9</metric>
+          <metric id="M4">431</metric>
+          <metric id="M5">3,72</metric>
+          <metric id="M6">2,69</metric>
+          <metric id="M7">3,00</metric>
+          <metric id="M8"></metric>
+          <metric id="M9">Proxy.Invoke(IMessage msg)</metric>
+          <metric id="M10">47</metric>
+          <metric id="M11"></metric>
+          <metric id="M12">9+</metric>
+          <metric id="M13">1,50</metric>
+          <metric id="M14">1,48</metric>
+        </metrics>
+        <block_depths depth_count="10">
+          <block_depth level="0">3112</block_depth>
+          <block_depth level="1">2298</block_depth>
+          <block_depth level="2">4117</block_depth>
+          <block_depth level="3">914</block_depth>
+          <block_depth level="4">382</block_depth>
+          <block_depth level="5">162</block_depth>
+          <block_depth level="6">88</block_depth>
+          <block_depth level="7">50</block_depth>
+          <block_depth level="8">10</block_depth>
+          <block_depth level="9+">15</block_depth>
+        </block_depths>
+      </checkpoint>
+    </checkpoints>
+  </project>
+</sourcemonitor_metrics>

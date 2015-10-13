@@ -37,11 +37,11 @@ namespace BadgesSharp.Infrastructure.Web.Serialization
                     code = (int)responseMessage.StatusCode;
                 }
 
-// #if DEBUG
+#if DEBUG
                 actionExecutedContext.Response = actionExecutedContext.Request.CreateResponse(HttpStatusCode.BadRequest, new { code = code, message = message, stackTrace = exception.StackTrace }, new JsonMediaTypeFormatter());
-// #else
-//                actionExecutedContext.Response = actionExecutedContext.Request.CreateResponse(HttpStatusCode.BadRequest, new { code = code, message = message }, new JsonMediaTypeFormatter());
-//#endif          
+#else
+                actionExecutedContext.Response = actionExecutedContext.Request.CreateResponse(HttpStatusCode.BadRequest, new { code = code, message = message }, new JsonMediaTypeFormatter());
+#endif
             }
         }
         #endregion

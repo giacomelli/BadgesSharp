@@ -6,25 +6,23 @@ namespace BadgesSharp.Builders
     /// <summary>
     /// A base class to badge builders that use a xml report as input.
     /// </summary>
-    public abstract class XmlReportBadgeBuilderBase : BadgeBuilderBase
+    public abstract class XmlReportViolationBadgeBuilderBase : ReportBadgeBuilderBase
     {
         #region Fields
         private string m_violationElementName;
-        private string m_xmlReport;
         #endregion
 
         #region Constructors        
         /// <summary>
-        /// Initializes a new instance of the <see cref="XmlReportBadgeBuilderBase"/> class.
+        /// Initializes a new instance of the <see cref="XmlReportViolationBadgeBuilderBase"/> class.
         /// </summary>
         /// <param name="badgeName">Name of the badge.</param>
         /// <param name="violationElementName">Name of the violation element.</param>
         /// <param name="xmlReport">The XML report.</param>
-        protected XmlReportBadgeBuilderBase(string badgeName, string violationElementName, string xmlReport)
-            : base(badgeName)
+        protected XmlReportViolationBadgeBuilderBase(string badgeName, string violationElementName, string xmlReport)
+            : base(badgeName, xmlReport)
         {
             m_violationElementName = violationElementName;
-            m_xmlReport = xmlReport;
             Style.Success.Text = "no violations";
             Style.Failed.Text = "{0} violations";
         }
@@ -38,9 +36,9 @@ namespace BadgesSharp.Builders
         {
             int violations = 0;
 
-            if (!string.IsNullOrEmpty(m_xmlReport))
+            if (!string.IsNullOrEmpty(Report))
             {
-                var doc = XDocument.Parse(m_xmlReport);
+                var doc = XDocument.Parse(Report);
                 violations = doc.Descendants(m_violationElementName).Count();
             }
 

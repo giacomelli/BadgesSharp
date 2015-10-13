@@ -58,17 +58,21 @@
     <Compile Include="BadgeService.cs" />
     <Compile Include="Builders\BadgeStatusStyle.cs" />
     <Compile Include="Builders\BadgeStyle.cs" />
+    <Compile Include="Builders\BadgeBuilderExtensions.cs" />
     <Compile Include="Builders\BuilderService.cs" />
     <Compile Include="Builders\DupFinderBadgeBuilder.cs" />
+    <Compile Include="Builders\CodeCoverageBadgeBuilder.cs" />
     <Compile Include="Builders\FxCopBadgeBuilder.cs" />
     <Compile Include="Builders\IBadgeSvgBuilder.cs" />
+    <Compile Include="Builders\LocBadgeBuilder.cs" />
+    <Compile Include="Builders\ReportBadgeBuilderBase.cs" />
     <Compile Include="Builders\PlatoMaintainabilityBadgeBuilder.cs" />
     <Compile Include="Builders\TotalGeneratedBadgesBadgeBuilder.cs" />
     <Compile Include="Builders\SpecFlowBadgeBuilder.cs" />
     <Compile Include="Builders\StyleCopBadgeBuilder.cs" />
     <Compile Include="Builders\BadgeBuilderBase.cs" />
     <Compile Include="Builders\JsonReportBadgeBuilderBase.cs" />
-    <Compile Include="Builders\XmlReportBadgeBuilderBase.cs" />
+    <Compile Include="Builders\XmlReportViolationBadgeBuilderBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\Templates.Designer.cs">
       <AutoGen>True</AutoGen>

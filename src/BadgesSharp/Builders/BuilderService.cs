@@ -45,7 +45,7 @@ namespace BadgesSharp.Builders
         /// <returns>True if exists a builder.</returns>
         public static bool ExistsBuilder(string badgeName)
         {
-            return AvailableBadgesNames.Contains(badgeName);
+            return AvailableBadgesNames.Any(b => b.Equals(badgeName, StringComparison.OrdinalIgnoreCase));
         }
         #endregion
     }

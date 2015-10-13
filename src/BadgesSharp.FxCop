@@ -16,7 +16,7 @@
   <Spelling Locale="en-US" />
   <OverrideRuleVisibilities>True</OverrideRuleVisibilities>
   <CustomDictionaries SearchFxCopDir="True" SearchUserProfile="True" SearchProjectDir="True" />
-  <SearchGlobalAssemblyCache>False</SearchGlobalAssemblyCache>
+  <SearchGlobalAssemblyCache>True</SearchGlobalAssemblyCache>
   <DeadlockDetectionTimeout>120</DeadlockDetectionTimeout>
   <IgnoreGeneratedCode>True</IgnoreGeneratedCode>
  </ProjectOptions>
@@ -138,5 +138,40 @@
   <Groups />
   <Settings />
  </Rules>
- <FxCopReport Version="10.0" />
+ <FxCopReport Version="10.0">
+  <Targets>
+   <Target Name="$(ProjectDir)/BadgesSharpCmd/bin/Release/BadgesSharpCmd.exe">
+    <Modules>
+     <Module Name="badgessharpcmd.exe">
+      <Namespaces>
+       <Namespace Name="BadgesSharpCmd">
+        <Types>
+         <Type Name="IOHelper">
+          <Members>
+           <Member Name="#GetFirstFolder(System.String,System.String[],System.Int32)">
+            <Messages>
+             <Message Id="System.String.EndsWith(System.String)" TypeName="SpecifyStringComparison" Category="Microsoft.Globalization" CheckId="CA1307" Created="2015-10-13 10:43:39Z">
+              <Issue>
+               <Item>'string.EndsWith(string)'</Item>
+               <Item>'IOHelper.GetFirstFolder(string, string[], int)'</Item>
+               <Item>'string.EndsWith(string, StringComparison)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+      </Namespaces>
+     </Module>
+    </Modules>
+   </Target>
+  </Targets>
+  <Rules>
+   <Rule TypeName="SpecifyStringComparison" Category="Microsoft.Globalization" CheckId="CA1307">
+    <Resolution Name="Default">Because the behavior of {0} could vary based on the current user's locale settings, replace this call in {1} with a call to {2}. If the result of {2} will be displayed to the user, such as when sorting a list of items for display in a list box, specify 'StringComparison.CurrentCulture' or 'StringComparison.CurrentCultureIgnoreCase' as the 'StringComparison' parameter. If comparing case-insensitive identifiers, such as file paths, environment variables, or registry keys and values, specify 'StringComparison.OrdinalIgnoreCase'. Otherwise, if comparing case-sensitive identifiers, specify 'StringComparison.Ordinal'.</Resolution>
+   </Rule>
+  </Rules>
+ </FxCopReport>
 </FxCopProject>

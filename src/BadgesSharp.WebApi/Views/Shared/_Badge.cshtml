@@ -1,7 +1,7 @@
 ﻿@model BadgesSharp.WebApi.Models.BadgePageViewModel
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
-    var generateCommand = "BadgesSharpCmd -o [your GitHub username] -r [your GitHub project] -a %GITHUB_REPO_TOKEN% -b " + @Model.Badge + " -c " + @Model.Report; 
+    var generateCommand = "BadgesSharpCmd -o [your GitHub username] -r [your GitHub repository] -a %GITHUB_REPO_TOKEN% -b " + @Model.Badge + " -c " + @Model.Report; 
 }
 
 <div class="jumbotron">
@@ -26,7 +26,7 @@
 <h3>Show the badge at your GitHub repository</h3>
 Edit your readme.md and add the line below:<br />
 
-<pre>![@Model.Title](https://badgessharp.apphb.com/badges/[your GitHub username]/[your GitHub project]/@Model.Badge)</pre>
+<pre>![@Model.Title](https://badgessharp.apphb.com/badges/:owner/:repo/@Model.Badge)</pre>
 
 <h3>How use it on your Continuous Integration?<h3>
 <h4>AppVeyor</h4>

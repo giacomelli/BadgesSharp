@@ -56,6 +56,8 @@
   <ItemGroup>
     <Compile Include="BadgeTest.cs" />
     <Compile Include="Builders\BuilderServiceTest.cs" />
+    <Compile Include="Builders\LocBadgeBuilderTest.cs" />
+    <Compile Include="Builders\CodeCoverageBadgeBuilderTest.cs" />
     <Compile Include="Builders\PlatoMaintainabilityBadgeBuilderTest.cs" />
     <Compile Include="Builders\DupFinderBadgeBuilderTest.cs" />
     <Compile Include="Builders\FxCopBadgeBuilderTest.cs" />
@@ -77,6 +79,21 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\CodeCoverage-DotCover-report-failed.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Loc.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\CodeCoverage-DotCover-report-warning.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\CodeCoverage-not-DotCover-report.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\CodeCoverage-DotCover-report-success.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Resources\PlatoMaintainability-report-warning.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -86,6 +103,21 @@
     <None Include="Resources\PlatoMaintainability-report-failed.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <Content Include="Resources\CodeCoverage-failed.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\CodeCoverage-warning.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\CodeCoverage-success.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Loc-not-SourceMonitor-report.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Loc-SourceMonitor-report.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\PlatoMaintainability-warning.svg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

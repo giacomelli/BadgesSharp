@@ -5,12 +5,8 @@ namespace BadgesSharp.Builders
     /// <summary>
     /// A base class to badge builders that use a json report as input.
     /// </summary>
-    public abstract class JsonReportBadgeBuilderBase : BadgeBuilderBase
+    public abstract class JsonReportBadgeBuilderBase : ReportBadgeBuilderBase
     {
-        #region Fields
-        private string m_jsonReport;
-        #endregion
-
         #region Constructors        
         /// <summary>
         /// Initializes a new instance of the <see cref="JsonReportBadgeBuilderBase"/> class.
@@ -18,9 +14,8 @@ namespace BadgesSharp.Builders
         /// <param name="badgeName">Name of the badge.</param>
         /// <param name="jsonReport">The JSON report.</param>
         protected JsonReportBadgeBuilderBase(string badgeName, string jsonReport)
-            : base(badgeName)
+            : base(badgeName, jsonReport)
         {
-            m_jsonReport = jsonReport;
         }
         #endregion
 
@@ -31,7 +26,7 @@ namespace BadgesSharp.Builders
         /// <returns>The JSON object.</returns>
         protected dynamic ReadJson()
         {
-            return JsonConvert.DeserializeObject<dynamic>(m_jsonReport);
+            return JsonConvert.DeserializeObject<dynamic>(Report);
         }
         #endregion
     }

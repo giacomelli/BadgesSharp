@@ -34,19 +34,7 @@ namespace BadgesSharp.Builders
             }
 
             TextArguments.Add(maintainability);
-
-            if (maintainability < 50)
-            {
-                Status = BadgeStatus.Failed;
-            }
-            else if (maintainability < 90)
-            {
-                Status = BadgeStatus.Warning;
-            }
-            else
-            {
-                Status = BadgeStatus.Success;
-            }
+            this.SetStatusByPercent(maintainability);           
         }
         #endregion
     }

@@ -4,7 +4,7 @@
     /// The DupFinder badge builder.
     /// <see href="https://confluence.jetbrains.com/display/NETCOM/Introducing+dupFinder"/>
     /// </summary>
-    public class DupFinderBadgeBuilder : XmlReportBadgeBuilderBase
+    public class DupFinderBadgeBuilder : XmlReportViolationBadgeBuilderBase
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="DupFinderBadgeBuilder"/> class.

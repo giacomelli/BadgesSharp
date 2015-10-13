@@ -40,20 +40,45 @@ namespace BadgesSharpCmd.FunctionalTests
             StringAssert.Contains("Try `BadgesSharpCmd --help` for more information", output);
 
             output = ProcessHelper.Run(m_exePath, "-help", true);
-            StringAssert.Contains(" -h, --help                 show this message and exit", output);           
+            StringAssert.Contains(" -h, --help                 show this message and exit", output);
         }
 
         [Test]
-        public void BadgesSharpCmd_ValidArgs_BadgeGenerated()
+        public void BadgesSharpCmd_Loc_BadgeGenerated()
+        {
+            AssertBadgeGenerated("LOC", @"..\..\..\BadgesSharp.UnitTests\Resources\Loc-SourceMonitor-report.xml");
+        }
+
+        [Test]
+        public void BadgesSharpCmd_StyleCop_BadgeGenerated()
+        {
+            AssertBadgeGenerated("StyleCop", @"..\..\..\BadgesSharp.UnitTests\Resources\StyleCop-report-with-violations.xml");
+        }
+
+        [Test]
+        public void BadgesSharpCmd_SpecFlow_BadgeGenerated()
+        {
+            AssertBadgeGenerated("SpecFlow", "success");
+        }
+
+        [Test]
+        public void BadgesSharpCmd_FxCop_BadgeGenerated()
+        {
+            AssertBadgeGenerated("FxCop", @"..\..\..\BadgesSharp.Uni*Tests\Resou*ces\FxCop-report-with-*.xml");
+            AssertBadgeGenerated("FxCop", @"..\..\..\BadgesSharp.UnitTests\Resources\FxCop-report-with-violations.xml");
+        }
+
+        [Test]
+        public void BadgesSharpCmd_DupFinder_BadgeGenerated()
         {
             AssertBadgeGenerated("DupFinder", @"..\..\..\BadgesSharp.UnitTests\Resources\*.xml");
             AssertBadgeGenerated("DupFinder", @"..\..\..\BadgesSharp.UnitTests\Resources\dupFinder-report-with-duplicates.xml");
+        }
 
-            AssertBadgeGenerated("FxCop", @"..\..\..\BadgesSharp.Uni*Tests\Resou*ces\FxCop-report-with-*.xml");
-            AssertBadgeGenerated("FxCop", @"..\..\..\BadgesSharp.UnitTests\Resources\FxCop-report-with-violations.xml");
-
-            AssertBadgeGenerated("SpecFlow", "success");
-            AssertBadgeGenerated("StyleCop", @"..\..\..\BadgesSharp.UnitTests\Resources\StyleCop-report-with-violations.xml");
+        [Test]
+        public void BadgesSharpCmd_CodeCoverage_BadgeGenerated()
+        {
+            AssertBadgeGenerated("Code coverage", @"..\..\..\BadgesSharp.UnitTests\Resources\CodeCoverage-DotCover-report-success.xml");
         }
 
         [Test]
@@ -94,10 +119,11 @@ namespace BadgesSharpCmd.FunctionalTests
         #region Helpers
         private void AssertBadgeGenerated(string badgeName, string content, bool contentFileShouldExists = true)
         {
-            string output = CallCommandLine(badgeName, content);
+            var normalizedBadgeName = badgeName.Replace(" ", string.Empty);
+            string output = CallCommandLine(normalizedBadgeName, content);
 
             StringAssert.Contains("Badge generated", output, "Badge '{0}' not generated".With(badgeName));
-            var badgeUrl = "http://localhost:8888/badges/giacomelli/SampleProject/" + badgeName;
+            var badgeUrl = "http://localhost:8888/badges/giacomelli/SampleProject/" + normalizedBadgeName;
 
             StringAssert.Contains(badgeUrl, output, "Badge '{0}' not generated".With(badgeName));
 

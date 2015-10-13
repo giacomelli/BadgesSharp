@@ -32,7 +32,7 @@ namespace BadgesSharp.WebApi.App_Start
         {
             var cache = controller.Configuration.CacheOutputConfiguration().GetCacheOutputProvider(controller.Request);
             cache.RemoveStartsWith(MakeBadgeCacheKey(badge.Owner, badge.Repository, badge.Name));
-			cache.RemoveStartsWith(MakeBadgeCacheKey("giacomelli", "BadgesSharp", "TotalGeneratedBadges"));
+            cache.RemoveStartsWith(MakeBadgeCacheKey("giacomelli", "BadgesSharp", "TotalGeneratedBadges"));
         }
 
         /// <summary>
@@ -47,6 +47,6 @@ namespace BadgesSharp.WebApi.App_Start
             var args = context.ActionArguments;
 
             return MakeBadgeCacheKey(args["repositoryOwner"], args["repositoryName"], args["name"]);
-        }        
+        }
     }
 }

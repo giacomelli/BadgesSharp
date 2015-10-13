@@ -84,45 +84,47 @@ namespace BadgesSharp.UnitTests
             Assert.AreEqual(1, m_target.CountBadges());
         }
 
-		[Test]
-		public void Save_New_Created()
-		{
-			var badge = new Badge () {
-				Owner = "owner1",
-				Repository = "repository1",
-				Name = "FxCop",
-				Svg = "saved one"
-			};
+        [Test]
+        public void Save_New_Created()
+        {
+            var badge = new Badge()
+            {
+                Owner = "owner1",
+                Repository = "repository1",
+                Name = "FxCop",
+                Svg = "saved one"
+            };
 
-			m_target.SaveBadge (badge);
-			m_unitOfWork.Commit ();
+            m_target.SaveBadge(badge);
+            m_unitOfWork.Commit();
 
-			Assert.AreEqual (1, m_target.CountBadges ());
-			var actual = m_target.GetBadge ("owner1", "repository1", "FxCop");
-			Assert.IsNotNull (actual);
-			Assert.AreEqual ("owner1", actual.Owner);
-		}
+            Assert.AreEqual(1, m_target.CountBadges());
+            var actual = m_target.GetBadge("owner1", "repository1", "FxCop");
+            Assert.IsNotNull(actual);
+            Assert.AreEqual("owner1", actual.Owner);
+        }
 
-		[Test]
-		public void Save_Old_Update()
-		{
-			var badge = new Badge () {
-				Owner = "owner1",
-				Repository = "repository1",
-				Name = "FxCop",
-				Svg = "saved one"
-			};
+        [Test]
+        public void Save_Old_Update()
+        {
+            var badge = new Badge()
+            {
+                Owner = "owner1",
+                Repository = "repository1",
+                Name = "FxCop",
+                Svg = "saved one"
+            };
 
-			m_target.SaveBadge (badge);
-			m_unitOfWork.Commit ();
+            m_target.SaveBadge(badge);
+            m_unitOfWork.Commit();
 
-			var old = m_target.GetBadge ("owner1", "repository1", "FxCop");
-			m_target.SaveBadge (old);
+            var old = m_target.GetBadge("owner1", "repository1", "FxCop");
+            m_target.SaveBadge(old);
 
-			Assert.AreEqual (1, m_target.CountBadges ());
-			var actual = m_target.GetBadge ("owner1", "repository1", "FxCop");
-			Assert.IsNotNull (actual);
-			Assert.AreEqual ("owner1", actual.Owner);
-		}
+            Assert.AreEqual(1, m_target.CountBadges());
+            var actual = m_target.GetBadge("owner1", "repository1", "FxCop");
+            Assert.IsNotNull(actual);
+            Assert.AreEqual("owner1", actual.Owner);
+        }
     }
 }

@@ -3,7 +3,7 @@
     /// <summary>
     /// The StyleCop badge builder.
     /// </summary>
-    public class StyleCopBadgeBuilder : XmlReportBadgeBuilderBase
+    public class StyleCopBadgeBuilder : XmlReportViolationBadgeBuilderBase
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="StyleCopBadgeBuilder"/> class.
