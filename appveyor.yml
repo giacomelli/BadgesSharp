@@ -4,9 +4,9 @@ os: Visual Studio 2015
 configuration: Release
 environment:
 COVERALLS_REPO_TOKEN:
-secure: hUwrEfRQVIP+rOtSr+P+5lQ0ILHSnL4aycCsmCan2Qty8v7RPtrle4qMZTs4RvMM
+	secure: hUwrEfRQVIP+rOtSr+P+5lQ0ILHSnL4aycCsmCan2Qty8v7RPtrle4qMZTs4RvMM
 GITHUB_PERSONAL_ACCESS_TOKEN:
-secure: Jmpeow5aAcDhUHkwac/AC6MzQciGc9TLgrp5oz4U0gyAwCWGqqxJhmjz3AVrWp/V	
+	secure: Jmpeow5aAcDhUHkwac/AC6MzQciGc9TLgrp5oz4U0gyAwCWGqqxJhmjz3AVrWp/V	
 
 install:
 - cmd: choco install resharper-clt.portable
