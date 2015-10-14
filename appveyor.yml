@@ -42,9 +42,14 @@ after_build:
       .\src\BadgesSharpCmd\bin\Release\BadgesSharpCmd.exe -o giacomelli -r BadgesSharp -b DupFinder -c .\tools\dupFinder-Report.xml -a %GITHUB_PERSONAL_ACCESS_TOKEN%
 
       echo Building BadgesSharpCmd...
-      mkdir \build
-      cd .\src\BadgesSharpCmd\bin\Release
-      ..\..\..\..\tools\ILRepack.exe /target:exe /targetplatform:"v4,C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5" /out:..\..\..\..\build\BadgesSharpCmd.exe /wildcards BadgesSharpCmd.exe *.dll
+      
+	  mkdir \build
+      
+	  cd .\src\BadgesSharpCmd\bin\Release
+      
+	  C:\projects\badgessharp\tools\ILRepack.exe /target:exe /targetplatform:"v4,C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5" /out:.C:\projects\badgessharp\build\BadgesSharpCmd.exe /wildcards BadgesSharpCmd.exe *.dll
+	  
+	  cd C:\projects\badgessharp\
 
 test_script:
    - ps: >-
@@ -67,4 +72,4 @@ deploy:
      auth_token: $(GITHUB_PERSONAL_ACCESS_TOKEN)
      draft: false
      prerelease: $(GIT_PRE_RELEASE)
-     artifact: tools/BadgesSharpCmd.exe
+     artifact: .\Build\BadgesSharpCmd.exe
