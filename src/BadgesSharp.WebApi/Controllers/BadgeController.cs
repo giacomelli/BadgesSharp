@@ -12,6 +12,7 @@ using BadgesSharp.WebApi.App_Start;
 using BadgesSharp.WebApi.Models;
 using Skahal.Infrastructure.Framework.Repositories;
 using WebApi.OutputCache.V2;
+using System.Linq;
 
 namespace BadgesSharp.WebApi.Controllers
 {
@@ -60,7 +61,7 @@ namespace BadgesSharp.WebApi.Controllers
         [HttpGet]
         [CacheOutput(ServerTimeSpan = int.MaxValue)]
         [Route("badges/available")]
-        public IList<string> GetAvailableBadges()
+        public IEnumerable<string> GetAvailableBadges()
         {
             return BuilderService.AvailableBadgesNames;
         }

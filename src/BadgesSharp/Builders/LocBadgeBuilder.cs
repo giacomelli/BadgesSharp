@@ -17,7 +17,7 @@ namespace BadgesSharp.Builders
         /// <param name="xmlReport">The json report.</param>
         public LocBadgeBuilder(string xmlReport) : base("LOC", xmlReport)
         {
-            Style.SetAllStatusText("{0:N0}");
+            Style.SetAllStatusText("{0}");
         }
         #endregion
 

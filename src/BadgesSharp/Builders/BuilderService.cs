@@ -23,13 +23,25 @@ namespace BadgesSharp.Builders
         static BuilderService()
         {
             s_availableBuilders = ReflectionHelper.GetSubclassesOf<BadgeBuilderBase>();
-            AvailableBadgesNames = s_availableBuilders.Select(b => b.Name.Replace("BadgeBuilder", string.Empty)).ToList().AsReadOnly();
+            InternalAvailableBadgesNames = s_availableBuilders.Select(b => b.Name.Replace("BadgeBuilder", string.Empty)).ToList().AsReadOnly();
+            AvailableBadgesNames = InternalAvailableBadgesNames.Where(
+                b =>
+                   !b.Equals("SpecFlow", StringComparison.OrdinalIgnoreCase)
+                && !b.Equals("TotalGeneratedBadges", StringComparison.OrdinalIgnoreCase)).ToList().AsReadOnly();
         }
         #endregion
 
         #region Properties        
         /// <summary>
-        /// Gets the available badges names.
+        /// Gets the internal available badges names.
+        /// </summary>
+        /// <value>
+        /// The available badges names.
+        /// </value>
+        private static IList<string> InternalAvailableBadgesNames { get; set; }
+
+        /// <summary>
+        /// Gets the internal available badges names.
         /// </summary>
         /// <value>
         /// The available badges names.
@@ -45,7 +57,7 @@ namespace BadgesSharp.Builders
         /// <returns>True if exists a builder.</returns>
         public static bool ExistsBuilder(string badgeName)
         {
-            return AvailableBadgesNames.Any(b => b.Equals(badgeName, StringComparison.OrdinalIgnoreCase));
+            return InternalAvailableBadgesNames.Any(b => b.Equals(badgeName, StringComparison.OrdinalIgnoreCase));
         }
         #endregion
     }

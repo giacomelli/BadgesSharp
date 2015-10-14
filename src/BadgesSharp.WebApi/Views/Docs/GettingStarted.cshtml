@@ -1,4 +1,8 @@
-﻿<div class="jumbotron">
+﻿@{
+    var badges = String.Join(", ", BadgesSharp.Builders.BuilderService.AvailableBadgesNames);
+}
+
+<div class="jumbotron">
     <h2>Getting started</h2>
     <p class="lead">Get your badges in a few steps</p>
 </div>
@@ -21,4 +25,4 @@
 
 
 <h3>Choose the badge</h3>
-Currently we support the follow badges: DupFinder, FxCop, StyleCop and Plato.
+Currently the available badges are @badges.

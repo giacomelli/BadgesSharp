@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@{
+    var badges = BadgesSharp.Builders.BuilderService.AvailableBadgesNames;
+}
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -23,10 +26,14 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Docs", new { area = "" }, null)</li>
                     <li>@Html.ActionLink("Getting started", "GettingStarted", "Docs", new { area = "" }, null)</li>
-                    <li>@Html.ActionLink("DupFinder", "DupFinder", "Docs", new { area = "" }, null)</li>
-                    <li>@Html.ActionLink("FxCop", "FxCop", "Docs", new { area = "" }, null)</li>
-                    <li>@Html.ActionLink("Plato", "Plato", "Docs", new { area = "" }, null)</li>
-                    <li>@Html.ActionLink("StyleCop", "StyleCop", "Docs", new { area = "" }, null)</li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Badges</a>
+                        <ul class="dropdown-menu">
+                        @foreach(var badge in badges) {
+                            <li>@Html.ActionLink(badge.Translate(), badge, "Docs", new { area = "" }, null)</li>                           
+                         }
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -35,10 +42,9 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - BadgesSharp</p>
+            <p>&copy; @DateTime.Now.Year - BadgesSharp by <a href="http://diegogiacomelli.com.br">Diego Giacomelli</a> (<a href="http://twitter.com/ogiacomelli">@@ogiacomelli</a>)</p>
         </footer>
     </div>
-
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
