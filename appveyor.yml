@@ -41,7 +41,10 @@ after_build:
 
       .\src\BadgesSharpCmd\bin\Release\BadgesSharpCmd.exe -o giacomelli -r BadgesSharp -b DupFinder -c .\tools\dupFinder-Report.xml -a %GITHUB_PERSONAL_ACCESS_TOKEN%
 
-      .\tools\buildBadgesSharpCmd.bat
+	  echo Building BadgesSharpCmd...
+	  mkdir \build
+	  cd .\src\BadgesSharpCmd\bin\Release
+	  ..\..\..\..\tools\ILRepack.exe /target:exe /targetplatform:"v4,C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5" /out:..\..\..\..\build\BadgesSharpCmd.exe /wildcards BadgesSharpCmd.exe *.dll
 
 test_script:
    - ps: >-
