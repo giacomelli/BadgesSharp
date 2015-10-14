@@ -1,3 +1,4 @@
+skip_tags: true
 version: 0.5.{build}
 os: Visual Studio 2015
 configuration: Release
@@ -7,7 +8,12 @@ environment:
   GITHUB_PERSONAL_ACCESS_TOKEN:
     secure: Jmpeow5aAcDhUHkwac/AC6MzQciGc9TLgrp5oz4U0gyAwCWGqqxJhmjz3AVrWp/V	
 install:
-- cmd: choco install resharper-clt.portable
+  - cmd: choco install resharper-clt.portable
+  - cinst nunit
+  - cinst 7zip.commandline
+  - cinst GitVersion.Portable
+  - ps: GitVersion /output buildserver /updateassemblyinfo true
+  - ps: $env:GIT_PRE_RELEASE = !$env:GitVersion_BranchName.Equals("release")
 
 nuget:
   account_feed: false
@@ -34,6 +40,8 @@ after_build:
     
     .\src\BadgesSharpCmd\bin\Release\BadgesSharpCmd.exe -o giacomelli -r BadgesSharp -b DupFinder -c .\tools\dupFinder-Report.xml -a %GITHUB_PERSONAL_ACCESS_TOKEN%
 
+	.\tools\buildBadgesSharpCmd.bat
+	
 test_script:
 - ps: >-
     .\src\packages\OpenCover.4.6.166\tools\OpenCover.Console.exe -register:user -target:nunit-console.exe -register:user "-targetargs:""src\BadgesSharp.UnitTests\bin\$env:CONFIGURATION\BadgesSharp.UnitTests.dll"" /noshadow" -filter:"+[BadgesSharp]*" -output:opencoverCoverage.xml
@@ -46,3 +54,12 @@ artifacts:
     name: StyleCop-Report     
   - path: .\tools\dupFinder-report.xml
     name: DupFinder-report 
+	
+deploy:
+  - provider: GitHub
+    tag: v$(GitVersion_SemVer)
+    release: v$(GitVersion_SemVer)
+    auth_token: $(GITHUB_PERSONAL_ACCESS_TOKEN)
+    draft: false
+    prerelease: $(GIT_PRE_RELEASE)
+    artifact: tools/BadgesSharpCmd.exe
