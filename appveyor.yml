@@ -27,8 +27,8 @@ build:
   verbosity: minimal
 
 after_build:
-- cmd: >-    
-    "C:\Program Files (x86)\Microsoft Fxcop 10.0\FxCopCmd.exe" /project:.\src\BadgesSharp.FxCop /out:.\tools\fxcop-report.xml
+	- cmd: >-
+	"C:\Program Files (x86)\Microsoft Fxcop 10.0\FxCopCmd.exe" /project:.\src\BadgesSharp.FxCop /out:.\tools\fxcop-report.xml
     
     .\src\BadgesSharpCmd\bin\Release\BadgesSharpCmd.exe -o giacomelli -r BadgesSharp -b FxCop -c ".\tools\fxcop-report.xml" -a %GITHUB_PERSONAL_ACCESS_TOKEN%
     
