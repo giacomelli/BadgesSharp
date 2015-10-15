@@ -33,9 +33,7 @@ after_build:
       
         .\src\BadgesSharpCmd\bin\Release\BadgesSharpCmd.exe -o giacomelli -r BadgesSharp -b FxCop -c ".\tools\fxcop-report.xml" -a %GITHUB_PERSONAL_ACCESS_TOKEN%
 
-        .\tools\StyleCopCmd\Net.SF.StyleCopCmd.Console\StyleCopCmd.exe -sf .\src\BadgesSharp.sln --styleCopSettingsFile .\src\Settings.StyleCop -of
-      
-        .\tools\stylecop-report.xml --ignoreFilePattern .+Test\.cs
+        .\tools\StyleCopCmd\Net.SF.StyleCopCmd.Console\StyleCopCmd.exe -sf .\src\BadgesSharp.sln --styleCopSettingsFile .\src\Settings.StyleCop -of .\tools\stylecop-report.xml --ignoreFilePattern .+Test\.cs
 
         .\src\BadgesSharpCmd\bin\Release\BadgesSharpCmd.exe -o giacomelli -r BadgesSharp -b StyleCop -c ".\tools\stylecop-report.violations.xml" -a %GITHUB_PERSONAL_ACCESS_TOKEN%
 
