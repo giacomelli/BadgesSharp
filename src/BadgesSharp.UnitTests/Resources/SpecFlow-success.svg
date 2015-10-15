@@ -1,20 +1,20 @@
-﻿<svg xmlns="http://www.w3.org/2000/svg" width="130.7706" height="20">
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="131" height="20">
   <linearGradient id="b" x2="0" y2="100%">
     <stop offset="0" stop-color="#bbb" stop-opacity=".1"/>
     <stop offset="1" stop-opacity=".1"/>
   </linearGradient>
   <mask id="a">
-    <rect width="130.7706" height="20" rx="3" fill="#fff"/>
+    <rect width="131" height="20" rx="3" fill="#fff"/>
   </mask>
   <g mask="url(#a)">
-    <path fill="#555" d="M0 0h71.30424v20H0z"/>
-    <path fill="#97CA00" d="M71.30424 0h59.46635v20H71.30424z"/>
-    <path fill="url(#b)" d="M0 0h130.7706v20H0z"/>
+    <path fill="#555" d="M0 0h71v20H0z"/>
+    <path fill="#97CA00" d="M71 0h59v20H71z"/>
+    <path fill="url(#b)" d="M0 0h131v20H0z"/>
   </g>
   <g fill="#fff" text-anchor="middle" font-family="DejaVu Sans,Verdana,Geneva,sans-serif" font-size="11">
-    <text x="36.65212" y="15" fill="#010101" fill-opacity=".3">SpecFlow</text>
-    <text x="36.65212" y="14">SpecFlow</text>
-    <text x="100.0374" y="15" fill="#010101" fill-opacity=".3">success</text>
-    <text x="100.0374" y="14">success</text>
+    <text x="37" y="15" fill="#010101" fill-opacity=".3">SpecFlow</text>
+    <text x="37" y="14">SpecFlow</text>
+    <text x="100" y="15" fill="#010101" fill-opacity=".3">success</text>
+    <text x="100" y="14">success</text>
   </g>
 </svg>

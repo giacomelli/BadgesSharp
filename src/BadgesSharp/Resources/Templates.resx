@@ -118,24 +118,24 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Default" xml:space="preserve">
-    <value>&lt;svg xmlns="http://www.w3.org/2000/svg" width="{0}" height="20"&gt;
+    <value>&lt;svg xmlns="http://www.w3.org/2000/svg" width="{0:N0}" height="20"&gt;
   &lt;linearGradient id="b" x2="0" y2="100%"&gt;
     &lt;stop offset="0" stop-color="#bbb" stop-opacity=".1"/&gt;
     &lt;stop offset="1" stop-opacity=".1"/&gt;
   &lt;/linearGradient&gt;
   &lt;mask id="a"&gt;
-    &lt;rect width="{0}" height="20" rx="3" fill="#fff"/&gt;
+    &lt;rect width="{0:N0}" height="20" rx="3" fill="#fff"/&gt;
   &lt;/mask&gt;
   &lt;g mask="url(#a)"&gt;
-    &lt;path fill="#555" d="M0 0h{1}v20H0z"/&gt;
-    &lt;path fill="{7}" d="M{1} 0h{2}v20H{1}z"/&gt;
-    &lt;path fill="url(#b)" d="M0 0h{0}v20H0z"/&gt;
+    &lt;path fill="#555" d="M0 0h{1:N0}v20H0z"/&gt;
+    &lt;path fill="{7}" d="M{1:N0} 0h{2:N0}v20H{1:N0}z"/&gt;
+    &lt;path fill="url(#b)" d="M0 0h{0:N0}v20H0z"/&gt;
   &lt;/g&gt;
   &lt;g fill="#fff" text-anchor="middle" font-family="DejaVu Sans,Verdana,Geneva,sans-serif" font-size="11"&gt;
-    &lt;text x="{3}" y="15" fill="#010101" fill-opacity=".3"&gt;{5}&lt;/text&gt;
-    &lt;text x="{3}" y="14"&gt;{5}&lt;/text&gt;
-    &lt;text x="{4}" y="15" fill="#010101" fill-opacity=".3"&gt;{6}&lt;/text&gt;
-    &lt;text x="{4}" y="14"&gt;{6}&lt;/text&gt;
+    &lt;text x="{3:N0}" y="15" fill="#010101" fill-opacity=".3"&gt;{5}&lt;/text&gt;
+    &lt;text x="{3:N0}" y="14"&gt;{5}&lt;/text&gt;
+    &lt;text x="{4:N0}" y="15" fill="#010101" fill-opacity=".3"&gt;{6}&lt;/text&gt;
+    &lt;text x="{4:N0}" y="14"&gt;{6}&lt;/text&gt;
   &lt;/g&gt;
 &lt;/svg&gt;</value>
   </data>

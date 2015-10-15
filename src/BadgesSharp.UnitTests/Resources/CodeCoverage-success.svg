@@ -1,20 +1,20 @@
-﻿<svg xmlns="http://www.w3.org/2000/svg" width="142.2719" height="20">
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="142" height="20">
   <linearGradient id="b" x2="0" y2="100%">
     <stop offset="0" stop-color="#bbb" stop-opacity=".1"/>
     <stop offset="1" stop-opacity=".1"/>
   </linearGradient>
   <mask id="a">
-    <rect width="142.2719" height="20" rx="3" fill="#fff"/>
+    <rect width="142" height="20" rx="3" fill="#fff"/>
   </mask>
   <g mask="url(#a)">
-    <path fill="#555" d="M0 0h107.1473v20H0z"/>
-    <path fill="#97CA00" d="M107.1473 0h35.12456v20H107.1473z"/>
-    <path fill="url(#b)" d="M0 0h142.2719v20H0z"/>
+    <path fill="#555" d="M0 0h107v20H0z"/>
+    <path fill="#97CA00" d="M107 0h35v20H107z"/>
+    <path fill="url(#b)" d="M0 0h142v20H0z"/>
   </g>
   <g fill="#fff" text-anchor="middle" font-family="DejaVu Sans,Verdana,Geneva,sans-serif" font-size="11">
-    <text x="54.57367" y="15" fill="#010101" fill-opacity=".3">Code coverage</text>
-    <text x="54.57367" y="14">Code coverage</text>
-    <text x="123.7096" y="15" fill="#010101" fill-opacity=".3">99%</text>
-    <text x="123.7096" y="14">99%</text>
+    <text x="55" y="15" fill="#010101" fill-opacity=".3">Code coverage</text>
+    <text x="55" y="14">Code coverage</text>
+    <text x="124" y="15" fill="#010101" fill-opacity=".3">99%</text>
+    <text x="124" y="14">99%</text>
   </g>
 </svg>
