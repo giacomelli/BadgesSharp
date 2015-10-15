@@ -1,6 +1,6 @@
 echo Building BadgesSharpCmd...
 
-mkdir \build
+mkdir C:\projects\badgessharp\build\
 
 cd .\src\BadgesSharpCmd\bin\Release
 
