@@ -43,12 +43,22 @@ after_build:
 
         .\tools\buildBadgesSharpCmd-CI.bat
 
+<<<<<<< HEAD
+=======
+    .\tools\buildBadgesSharpCmd.bat
+	
+>>>>>>> release/0.1.0
 test_script:
    - ps: >-
       .\src\packages\OpenCover.4.6.166\tools\OpenCover.Console.exe -register:user -target:nunit-console.exe -register:user "-targetargs:""src\BadgesSharp.UnitTests\bin\$env:CONFIGURATION\BadgesSharp.UnitTests.dll"" /noshadow" -filter:"+[BadgesSharp]*" -output:opencoverCoverage.xml
 
       .\src\packages\coveralls.net.0.6.0\tools\csmacnz.Coveralls.exe --opencover -i opencoverCoverage.xml --repoToken $env:COVERALLS_REPO_TOKEN --commitId $env:APPVEYOR_REPO_COMMIT --commitBranch $env:APPVEYOR_REPO_BRANCH --commitAuthor $env:APPVEYOR_REPO_COMMIT_AUTHOR --commitEmail $env:APPVEYOR_REPO_COMMIT_AUTHOR_EMAIL --commitMessage $env:APPVEYOR_REPO_COMMIT_MESSAGE --jobId $env:APPVEYOR_JOB_ID
 
+<<<<<<< HEAD
+=======
+    .\src\packages\coveralls.net.0.6.0\tools\csmacnz.Coveralls.exe --opencover -i opencoverCoverage.xml --repoToken $env:COVERALLS_REPO_TOKEN --commitId $env:APPVEYOR_REPO_COMMIT --commitBranch $env:APPVEYOR_REPO_BRANCH --commitAuthor $env:APPVEYOR_REPO_COMMIT_AUTHOR --commitEmail $env:APPVEYOR_REPO_COMMIT_AUTHOR_EMAIL --commitMessage $env:APPVEYOR_REPO_COMMIT_MESSAGE --jobId $env:APPVEYOR_JOB_ID
+
+>>>>>>> release/0.1.0
 artifacts:
    - path: .\tools\fxcop-report.xml
      name: FxCop-Report  
@@ -60,6 +70,7 @@ artifacts:
      name: BadgesSharpCmd.exe 
 
 deploy:
+<<<<<<< HEAD
    - provider: GitHub
      tag: v$(GitVersion_SemVer)
      release: v$(GitVersion_SemVer)
@@ -69,3 +80,15 @@ deploy:
      artifact: .\Build\BadgesSharpCmd.exe
      on:
         appveyor_repo_tag: true        # deploy on tag push only
+=======
+  - provider: GitHub
+    tag: v$(GitVersion_SemVer)
+    release: v$(GitVersion_SemVer)
+    auth_token: $(GITHUB_PERSONAL_ACCESS_TOKEN)
+    draft: false
+    prerelease: $(GIT_PRE_RELEASE)
+    artifact: tools/BadgesSharpCmd.exe
+    on:
+        branch: master
+        appveyor_repo_tag: true
+>>>>>>> release/0.1.0
