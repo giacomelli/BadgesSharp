@@ -10,7 +10,7 @@ environment:
 
 install:
    - cmd: choco install resharper-clt.portable
-   - cinst nunit
+   - cinst nunit 
    - cinst 7zip.commandline
    - cinst GitVersion.Portable
    - ps: GitVersion /output buildserver /updateassemblyinfo true
@@ -19,39 +19,31 @@ install:
 nuget:
    account_feed: false
    project_feed: false
-
+ 
 before_build:
    - cmd: nuget restore .\src\BadgesSharp.sln
 
 build:
    project: src\BadgesSharp.sln
    verbosity: minimal
-
+   
 after_build:
-    - cmd: >-
-      "C:\Program Files (x86)\Microsoft Fxcop 10.0\FxCopCmd.exe" /project:.\src\BadgesSharp.FxCop /out:.\tools\fxcop-report.xml
+    - cmd: >-	
+        "C:\Program Files (x86)\Microsoft Fxcop 10.0\FxCopCmd.exe" /project:.\src\BadgesSharp.FxCop /out:.\tools\fxcop-report.xml
       
-      .\src\BadgesSharpCmd\bin\Release\BadgesSharpCmd.exe -o giacomelli -r BadgesSharp -b FxCop -c ".\tools\fxcop-report.xml" -a %GITHUB_PERSONAL_ACCESS_TOKEN%
+        .\src\BadgesSharpCmd\bin\Release\BadgesSharpCmd.exe -o giacomelli -r BadgesSharp -b FxCop -c ".\tools\fxcop-report.xml" -a %GITHUB_PERSONAL_ACCESS_TOKEN%
 
-      .\tools\StyleCopCmd\Net.SF.StyleCopCmd.Console\StyleCopCmd.exe -sf .\src\BadgesSharp.sln --styleCopSettingsFile .\src\Settings.StyleCop -of
+        .\tools\StyleCopCmd\Net.SF.StyleCopCmd.Console\StyleCopCmd.exe -sf .\src\BadgesSharp.sln --styleCopSettingsFile .\src\Settings.StyleCop -of
       
-      .\tools\stylecop-report.xml --ignoreFilePattern .+Test\.cs
+        .\tools\stylecop-report.xml --ignoreFilePattern .+Test\.cs
 
-      .\src\BadgesSharpCmd\bin\Release\BadgesSharpCmd.exe -o giacomelli -r BadgesSharp -b StyleCop -c ".\tools\stylecop-report.violations.xml" -a %GITHUB_PERSONAL_ACCESS_TOKEN%
+        .\src\BadgesSharpCmd\bin\Release\BadgesSharpCmd.exe -o giacomelli -r BadgesSharp -b StyleCop -c ".\tools\stylecop-report.violations.xml" -a %GITHUB_PERSONAL_ACCESS_TOKEN%
 
-      C:\ProgramData\chocolatey\lib\resharper-clt.portable\tools\dupfinder.exe /output=.\tools\dupFinder-Report.xml /show-text /exclude=**\*Test.cs;**\*.feature.cs;**\BundleConfig.cs .\src\BadgesSharp.sln
+        C:\ProgramData\chocolatey\lib\resharper-clt.portable\tools\dupfinder.exe /output=.\tools\dupFinder-Report.xml /show-text /exclude=**\*Test.cs;**\*.feature.cs;**\BundleConfig.cs .\src\BadgesSharp.sln
 
-      .\src\BadgesSharpCmd\bin\Release\BadgesSharpCmd.exe -o giacomelli -r BadgesSharp -b DupFinder -c .\tools\dupFinder-Report.xml -a %GITHUB_PERSONAL_ACCESS_TOKEN%
+        .\src\BadgesSharpCmd\bin\Release\BadgesSharpCmd.exe -o giacomelli -r BadgesSharp -b DupFinder -c .\tools\dupFinder-Report.xml -a %GITHUB_PERSONAL_ACCESS_TOKEN%
 
-      echo Building BadgesSharpCmd...
-      
-      mkdir \build
-       
-      cd .\src\BadgesSharpCmd\bin\Release
-      
-      C:\projects\badgessharp\tools\ILRepack.exe /target:exe /targetplatform:"v4,C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5" /out:.C:\projects\badgessharp\build\BadgesSharpCmd.exe /wildcards BadgesSharpCmd.exe *.dll
-	  
-      cd C:\projects\badgessharp\
+        .\tools\buildBadgesSharpCmd-CI.bat
 
 test_script:
    - ps: >-
