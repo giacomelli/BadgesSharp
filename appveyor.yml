@@ -56,6 +56,8 @@ artifacts:
     name: StyleCop-Report     
   - path: .\tools\dupFinder-report.xml
     name: DupFinder-report 
+  - path: .\build\BadgesSharpCmd.exe
+    name: BadgesSharpCmd.exe    
     
 deploy:
   - provider: GitHub
