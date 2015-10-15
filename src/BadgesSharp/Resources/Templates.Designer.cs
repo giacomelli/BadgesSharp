@@ -8,11 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BadgesSharp.Resources
-{
+namespace BadgesSharp.Resources {
     using System;
-
-
+    
+    
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -23,76 +22,66 @@ namespace BadgesSharp.Resources
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Templates
-    {
-
+    internal class Templates {
+        
         private static global::System.Resources.ResourceManager resourceMan;
-
+        
         private static global::System.Globalization.CultureInfo resourceCulture;
-
+        
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Templates()
-        {
+        internal Templates() {
         }
-
+        
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager
-        {
-            get
-            {
-                if (object.ReferenceEquals(resourceMan, null))
-                {
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("BadgesSharp.Resources.Templates", typeof(Templates).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
             }
         }
-
+        
         /// <summary>
         ///   Overrides the current thread's CurrentUICulture property for all
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture
-        {
-            get
-            {
+        internal static global::System.Globalization.CultureInfo Culture {
+            get {
                 return resourceCulture;
             }
-            set
-            {
+            set {
                 resourceCulture = value;
             }
         }
-
+        
         /// <summary>
-        ///   Looks up a localized string similar to &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;{0}&quot; height=&quot;20&quot;&gt;
+        ///   Looks up a localized string similar to &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;{0:N0}&quot; height=&quot;20&quot;&gt;
         ///  &lt;linearGradient id=&quot;b&quot; x2=&quot;0&quot; y2=&quot;100%&quot;&gt;
         ///    &lt;stop offset=&quot;0&quot; stop-color=&quot;#bbb&quot; stop-opacity=&quot;.1&quot;/&gt;
         ///    &lt;stop offset=&quot;1&quot; stop-opacity=&quot;.1&quot;/&gt;
         ///  &lt;/linearGradient&gt;
         ///  &lt;mask id=&quot;a&quot;&gt;
-        ///    &lt;rect width=&quot;{0}&quot; height=&quot;20&quot; rx=&quot;3&quot; fill=&quot;#fff&quot;/&gt;
+        ///    &lt;rect width=&quot;{0:N0}&quot; height=&quot;20&quot; rx=&quot;3&quot; fill=&quot;#fff&quot;/&gt;
         ///  &lt;/mask&gt;
         ///  &lt;g mask=&quot;url(#a)&quot;&gt;
-        ///    &lt;path fill=&quot;#555&quot; d=&quot;M0 0h{1}v20H0z&quot;/&gt;
-        ///    &lt;path fill=&quot;{7}&quot; d=&quot;M{1} 0h{2}v20H{1}z&quot;/&gt;
-        ///    &lt;path fill=&quot;url(#b)&quot; d=&quot;M0 0h{0}v20H0z&quot;/&gt;
+        ///    &lt;path fill=&quot;#555&quot; d=&quot;M0 0h{1:N0}v20H0z&quot;/&gt;
+        ///    &lt;path fill=&quot;{7}&quot; d=&quot;M{1:N0} 0h{2:N0}v20H{1:N0}z&quot;/&gt;
+        ///    &lt;path fill=&quot;url(#b)&quot; d=&quot;M0 0h{0:N0}v20H0z&quot;/&gt;
         ///  &lt;/g&gt;
-        ///  &lt;g fill=&quot;#fff&quot; text-ancho [rest of string was truncated]&quot;;.
+        ///  &lt;g f [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string Default
-        {
-            get
-            {
+        internal static string Default {
+            get {
                 return ResourceManager.GetString("Default", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; width=&quot;{0}&quot; height=&quot;20&quot;&gt;
         ///  &lt;linearGradient id=&quot;b&quot; x2=&quot;0&quot; y2=&quot;100%&quot;&gt;
@@ -107,10 +96,8 @@ namespace BadgesSharp.Resources
         ///    &lt;path fill=&quot;{7}&quot; d=&quot;M{1} 0h{2}v20H{1}z&quot;/&gt;
         ///    &lt;path fill=&quot;url(#b)&quot; d=&quot;M0 0h{0}v20 [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string WithLogo
-        {
-            get
-            {
+        internal static string WithLogo {
+            get {
                 return ResourceManager.GetString("WithLogo", resourceCulture);
             }
         }
