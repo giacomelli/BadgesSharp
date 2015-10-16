@@ -66,6 +66,6 @@ deploy:
         secure: kmrAK2bY8lLNv7lClD44qrCnfp2hDGIWgd4CRZ3RPmryhwwnoi/+FU6JxYrazXT0
     draft: false
     prerelease: $(GIT_PRE_RELEASE)
-    artifact: tools/BadgesSharpCmd.exe
+    artifact: build/BadgesSharpCmd.exe
     on:
         appveyor_repo_tag: true        # deploy on tag push only
