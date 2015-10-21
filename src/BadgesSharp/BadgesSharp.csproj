@@ -89,6 +89,12 @@
       <LastGenOutput>Templates.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BadgesSharp.Infrastructure.Framework\BadgesSharp.Infrastructure.Framework.csproj">
+      <Project>{78634970-fabf-476b-b87c-dd41e7281998}</Project>
+      <Name>BadgesSharp.Infrastructure.Framework</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

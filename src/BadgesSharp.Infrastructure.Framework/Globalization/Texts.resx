@@ -120,7 +120,16 @@
   <data name="CodeCoverage" xml:space="preserve">
     <value>Code Coverage</value>
   </data>
+  <data name="DupFinder" xml:space="preserve">
+    <value>DupFinder</value>
+  </data>
+  <data name="FxCop" xml:space="preserve">
+    <value>FxCop</value>
+  </data>
   <data name="PlatoMaintainability" xml:space="preserve">
     <value>Plato</value>
+  </data>
+  <data name="StyleCop" xml:space="preserve">
+    <value>StyleCop</value>
   </data>
 </root>

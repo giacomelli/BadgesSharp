@@ -70,11 +70,38 @@ namespace BadgesSharp.Infrastructure.Framework.Globalization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to DupFinder.
+        /// </summary>
+        internal static string DupFinder {
+            get {
+                return ResourceManager.GetString("DupFinder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to FxCop.
+        /// </summary>
+        internal static string FxCop {
+            get {
+                return ResourceManager.GetString("FxCop", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Plato.
         /// </summary>
         internal static string PlatoMaintainability {
             get {
                 return ResourceManager.GetString("PlatoMaintainability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to StyleCop.
+        /// </summary>
+        internal static string StyleCop {
+            get {
+                return ResourceManager.GetString("StyleCop", resourceCulture);
             }
         }
     }
