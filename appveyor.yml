@@ -39,7 +39,7 @@ after_build:
     
     .\src\BadgesSharpCmd\bin\Release\BadgesSharpCmd.exe -o giacomelli -r BadgesSharp -b DupFinder -c .\tools\dupFinder-Report.xml -a %GITHUB_PERSONAL_ACCESS_TOKEN%
 
-    .\tools\buildBadgesSharpCmd.bat
+    .\tools\buildBadgesSharpCmd-CI.bat
     
 test_script:
 - ps: >-
