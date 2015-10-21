@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Globalization;
 using System.Xml;
 using System.Xml.Linq;
@@ -8,6 +9,7 @@ namespace BadgesSharp.Builders
     /// <summary>
     /// The Code Coverage badge builder.
     /// </summary>
+    [Browsable(false)] // Need to document how to use it in TeamCity.
     public class CodeCoverageBadgeBuilder : ReportBadgeBuilderBase
     {
         #region Constructors

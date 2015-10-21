@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using BadgesSharp.Infrastructure.Framework.Globalization;
 using HelperSharp;
 
 namespace BadgesSharp.Builders
@@ -24,10 +26,14 @@ namespace BadgesSharp.Builders
         {
             s_availableBuilders = ReflectionHelper.GetSubclassesOf<BadgeBuilderBase>();
             InternalAvailableBadgesNames = s_availableBuilders.Select(b => b.Name.Replace("BadgeBuilder", string.Empty)).ToList().AsReadOnly();
-            AvailableBadgesNames = InternalAvailableBadgesNames.Where(
-                b =>
-                   !b.Equals("SpecFlow", StringComparison.OrdinalIgnoreCase)
-                && !b.Equals("TotalGeneratedBadges", StringComparison.OrdinalIgnoreCase)).ToList().AsReadOnly();
+
+            var availableBadgesQuery = from b in s_availableBuilders
+                                       let browsableAttribute = b.GetCustomAttributes(typeof(BrowsableAttribute), false).FirstOrDefault() as BrowsableAttribute
+                                       where browsableAttribute == null || browsableAttribute.Browsable
+                                       select b.Name.Replace("BadgeBuilder", string.Empty);
+
+            AvailableBadgesNames = availableBadgesQuery.ToList().AsReadOnly();
+            AvailableBadgesTitles = AvailableBadgesNames.Select(b => GlobalizationHelper.GetText(b)).ToList().AsReadOnly();
         }
         #endregion
 
@@ -41,12 +47,20 @@ namespace BadgesSharp.Builders
         private static IList<string> InternalAvailableBadgesNames { get; set; }
 
         /// <summary>
-        /// Gets the internal available badges names.
+        /// Gets the available badges names.
         /// </summary>
         /// <value>
         /// The available badges names.
         /// </value>
         public static IList<string> AvailableBadgesNames { get; private set; }
+
+        /// <summary>
+        /// Gets the available badges titles.
+        /// </summary>
+        /// <value>
+        /// The available badges titles.
+        /// </value>
+        public static IList<string> AvailableBadgesTitles { get; private set; }
         #endregion
 
         #region Methods                

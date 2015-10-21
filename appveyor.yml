@@ -1,4 +1,3 @@
-skip_tags: true
 version: 0.5.{build}
 os: Visual Studio 2015
 configuration: Release
@@ -6,7 +5,7 @@ environment:
   COVERALLS_REPO_TOKEN:
     secure: hUwrEfRQVIP+rOtSr+P+5lQ0ILHSnL4aycCsmCan2Qty8v7RPtrle4qMZTs4RvMM
   GITHUB_PERSONAL_ACCESS_TOKEN:
-    secure: Jmpeow5aAcDhUHkwac/AC6MzQciGc9TLgrp5oz4U0gyAwCWGqqxJhmjz3AVrWp/V	
+    secure: Jmpeow5aAcDhUHkwac/AC6MzQciGc9TLgrp5oz4U0gyAwCWGqqxJhmjz3AVrWp/V    
 install:
   - cmd: choco install resharper-clt.portable
   - cinst nunit
@@ -40,13 +39,14 @@ after_build:
     
     .\src\BadgesSharpCmd\bin\Release\BadgesSharpCmd.exe -o giacomelli -r BadgesSharp -b DupFinder -c .\tools\dupFinder-Report.xml -a %GITHUB_PERSONAL_ACCESS_TOKEN%
 
-	.\tools\buildBadgesSharpCmd.bat
-	
+    .\tools\buildBadgesSharpCmd-CI.bat
+    
 test_script:
 - ps: >-
-    .\src\packages\OpenCover.4.6.166\tools\OpenCover.Console.exe -register:user -target:nunit-console.exe -register:user "-targetargs:""src\BadgesSharp.UnitTests\bin\$env:CONFIGURATION\BadgesSharp.UnitTests.dll"" /noshadow" -filter:"+[BadgesSharp]*" -output:opencoverCoverage.xml
+   .\src\packages\OpenCover.4.6.166\tools\OpenCover.Console.exe -register:user -target:nunit-console.exe -register:user "-targetargs:""src\BadgesSharp.UnitTests\bin\$env:CONFIGURATION\BadgesSharp.UnitTests.dll", "src\BadgesSharp.Infrastructure.FunctionalTests\bin\$env:CONFIGURATION\BadgesSharp.Infrastructure.FunctionalTests.dll", "src\BadgesSharpCmd.FunctionalTests\bin\$env:CONFIGURATION\BadgesSharpCmd.FunctionalTests.dll"" /noshadow" -filter:"+[BadgesSharp]*" -output:opencoverCoverage.xml
 
-    .\src\packages\coveralls.net.0.6.0\tools\csmacnz.Coveralls.exe --opencover -i opencoverCoverage.xml --repoToken $env:COVERALLS_REPO_TOKEN --commitId $env:APPVEYOR_REPO_COMMIT --commitBranch $env:APPVEYOR_REPO_BRANCH --commitAuthor $env:APPVEYOR_REPO_COMMIT_AUTHOR --commitEmail $env:APPVEYOR_REPO_COMMIT_AUTHOR_EMAIL --commitMessage $env:APPVEYOR_REPO_COMMIT_MESSAGE --jobId $env:APPVEYOR_JOB_ID
+   .\src\packages\coveralls.net.0.6.0\tools\csmacnz.Coveralls.exe --opencover -i opencoverCoverage.xml --repoToken $env:COVERALLS_REPO_TOKEN --commitId $env:APPVEYOR_REPO_COMMIT --commitBranch $env:APPVEYOR_REPO_BRANCH --commitAuthor $env:APPVEYOR_REPO_COMMIT_AUTHOR --commitEmail $env:APPVEYOR_REPO_COMMIT_AUTHOR_EMAIL --commitMessage $env:APPVEYOR_REPO_COMMIT_MESSAGE --jobId $env:APPVEYOR_JOB_ID
+    
 artifacts:
   - path: .\tools\fxcop-report.xml
     name: FxCop-Report  
@@ -54,12 +54,17 @@ artifacts:
     name: StyleCop-Report     
   - path: .\tools\dupFinder-report.xml
     name: DupFinder-report 
-	
+  - path: .\build\BadgesSharpCmd.exe
+    name: BadgesSharpCmd.exe    
+    
 deploy:
   - provider: GitHub
     tag: v$(GitVersion_SemVer)
     release: v$(GitVersion_SemVer)
-    auth_token: $(GITHUB_PERSONAL_ACCESS_TOKEN)
+    auth_token: 
+        secure: kmrAK2bY8lLNv7lClD44qrCnfp2hDGIWgd4CRZ3RPmryhwwnoi/+FU6JxYrazXT0
     draft: false
     prerelease: $(GIT_PRE_RELEASE)
-    artifact: tools/BadgesSharpCmd.exe
+    artifact: build/BadgesSharpCmd.exe
+    on:
+        appveyor_repo_tag: true        # deploy on tag push only

@@ -1,4 +1,5 @@
-﻿using HelperSharp;
+﻿using System.ComponentModel;
+using HelperSharp;
 
 namespace BadgesSharp.Builders
 {
@@ -8,6 +9,7 @@ namespace BadgesSharp.Builders
     /// It's a special badge used on BadgesSharp site and repository.
     /// </remarks>
     /// </summary>
+    [Browsable(false)]
     public sealed class TotalGeneratedBadgesBadgeBuilder : BadgeBuilderBase
     {
         #region Constructors        
