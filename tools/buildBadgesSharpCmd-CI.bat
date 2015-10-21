@@ -1,3 +1,4 @@
+
 echo Building BadgesSharpCmd...
 
 mkdir C:\projects\badgessharp\build

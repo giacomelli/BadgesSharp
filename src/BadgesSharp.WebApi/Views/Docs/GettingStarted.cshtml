@@ -1,5 +1,5 @@
 ﻿@{
-    var badges = String.Join(", ", BadgesSharp.Builders.BuilderService.AvailableBadgesNames);
+    var badges = BadgesSharp.Builders.BuilderService.AvailableBadgesNames;
 }
 
 <div class="jumbotron">
@@ -8,12 +8,12 @@
 </div>
 <h3>Download BadgesSharpCmd</h3>
 <p>
-    ...
+    Download the latest version from our <a href="https://github.com/giacomelli/BadgesSharp/releases">releases page</a>.
 </p>
 
 <h3>Generate a GitHub personal access token</h3>
 <p>
-    Only users with access to repository can update its the badges, so, we need to know who you are at GitHub.
+    Only users with access to repository can update the badges, so, we need to know who you are at GitHub.
 </p>
 <p>
     Go to <a href="https://github.com/settings/tokens">https://github.com/settings/tokens</a> and "Generate new token", if you want generate badges to public repositories, only check "user:email". If you want to generate badges to private repositories check "repo" option too.
@@ -25,4 +25,10 @@
 
 
 <h3>Choose the badge</h3>
-Currently the available badges are @badges.
+Currently the available badges are:
+<ul>
+    @foreach(var b in badges)
+    {
+        <li><a href="@b">@b.Translate()</a></li>
+    }
+</ul>

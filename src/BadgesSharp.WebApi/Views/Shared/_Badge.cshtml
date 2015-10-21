@@ -1,7 +1,17 @@
 ﻿@model BadgesSharp.WebApi.Models.BadgePageViewModel
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
-    var generateCommand = "BadgesSharpCmd -o [your GitHub username] -r [your GitHub repository] -a %GITHUB_REPO_TOKEN% -b " + @Model.Badge + " -c " + @Model.Report; 
+
+    Model.Badge = ViewContext.RouteData.Values["action"].ToString();
+    Model.Title = Model.Badge.Translate();
+
+    if(String.IsNullOrEmpty(Model.TeamCityReport)) 
+    {
+        Model.TeamCityReport = Model.Report;
+    }
+
+    var generateCommand = "BadgesSharpCmd -o [your GitHub username] -r [your GitHub repository] -a %GITHUB_REPO_TOKEN% -b " + Model.Badge + " -c " + Model.Report; 
+    var generateTCCommand = "BadgesSharpCmd -o [your GitHub username] -r [your GitHub repository] -a %GITHUB_REPO_TOKEN% -b " + Model.Badge + " -c \"" + Model.TeamCityReport + "\""; 
 }
 
 <div class="jumbotron">
@@ -28,14 +38,25 @@ Edit your readme.md and add the line below:<br />
 
 <pre>![@Model.Title](https://badgessharp.apphb.com/badges/:owner/:repo/@Model.Badge)</pre>
 
-<h3>How use it on your Continuous Integration?<h3>
+<h3>How use it on your Continuous Integration?</h3>
 <h4>AppVeyor</h4>
 <p>Add to your AppVeyor.yml file:</p>
 <pre>after_build:
         - cmd: >
         @Model.RunCommand
 
-        @generateCommand
-</pre>
+        @generateCommand</pre>
+
+<h4>TeamCity</h4>
+<p>Add the '@Model.Title' step to your configuration (probably you already have it);</p>
+<p>Add a final 'Command Line' step to your configuration:</p>
+<ol>
+    <li>Execute step: Even if some of the previous steps failed</li>
+    <li>Run: Custom script</li>
+    <li>Custom script:
+        <pre>@generateTCCommand</pre>
+</li>
+</ol>
+
 
 @RenderBody()

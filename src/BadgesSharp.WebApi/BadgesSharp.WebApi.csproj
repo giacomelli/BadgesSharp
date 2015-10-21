@@ -21,7 +21,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <FileUpgradeFlags>40</FileUpgradeFlags>
-    <UpgradeBackupLocation>C:\Dropbox\personal\Diego Giacomelli\Middleware\BadgesSharp\src\Backup7\</UpgradeBackupLocation>
+    <UpgradeBackupLocation>C:\Dropbox\personal\Diego Giacomelli\Middleware\BadgesSharp\src\Backup1\</UpgradeBackupLocation>
     <OldToolsVersion>4.0</OldToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -43,6 +43,10 @@
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="HelperSharp.Mvc, Version=1.0.0.0, Culture=neutral, PublicKeyToken=42e10a37baa9b5ba, processorArchitecture=MSIL">
+      <HintPath>..\packages\HelperSharp.Mvc.0.0.3\lib\net40\HelperSharp.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
@@ -171,7 +175,7 @@
     <Content Include="Views\Docs\GettingStarted.cshtml" />
     <Content Include="Views\Docs\FxCop.cshtml" />
     <Content Include="Views\Docs\StyleCop.cshtml" />
-    <Content Include="Views\Docs\Plato.cshtml" />
+    <Content Include="Views\Docs\PlatoMaintainability.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

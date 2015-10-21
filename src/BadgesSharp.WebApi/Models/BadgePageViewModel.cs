@@ -14,6 +14,7 @@
         public string Url { get; set; }
 
         public string Report { get; set; }
+        public string TeamCityReport { get; set; }
 
         public string RunCommand { get; set; }
     }

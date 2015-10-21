@@ -1,8 +1,11 @@
-﻿namespace BadgesSharp.Builders
+﻿using System.ComponentModel;
+
+namespace BadgesSharp.Builders
 {
     /// <summary>
     /// The SpecFlow badge builder.
     /// </summary>
+    [Browsable(false)] // Need to find a report or something to be the input to SpecFlow badge.
     public sealed class SpecFlowBadgeBuilder : BadgeBuilderBase
     {
         #region Constructors        

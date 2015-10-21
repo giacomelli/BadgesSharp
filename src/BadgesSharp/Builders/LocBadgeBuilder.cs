@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Globalization;
 using System.Xml;
 using HelperSharp;
@@ -8,6 +9,7 @@ namespace BadgesSharp.Builders
     /// <summary>
     /// The LOC (Lines Of Code) badge builder.
     /// </summary>
+    [Browsable(false)] // Need to document how to use SourceMonitor in command line.
     public class LocBadgeBuilder : ReportBadgeBuilderBase
     {
         #region Constructors        
