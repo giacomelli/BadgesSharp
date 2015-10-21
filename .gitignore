@@ -205,3 +205,4 @@ src/BadgesSharp.WebApi/Badges/https___github.com_giacomelli_SampleProject_DupFin
 src/BadgesSharp.WebApi/Badges/giacomelli/
 nuget.exe
 nugetInstallPackage.sh
+*.orig
