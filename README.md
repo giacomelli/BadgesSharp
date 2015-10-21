@@ -1,4 +1,4 @@
-BadgesSharp
+om BadgesSharp
 ===========
 [![Build status](https://ci.appveyor.com/api/projects/status/3xor12cgq7xsl51i/branch/master?svg=true)](https://ci.appveyor.com/project/giacomelli/badgessharp/branch/master)
 [![Coverage Status](https://coveralls.io/repos/giacomelli/BadgesSharp/badge.svg?branch=master&service=github)](https://coveralls.io/github/giacomelli/BadgesSharp?branch=master)
@@ -63,4 +63,4 @@ In others words, you can use this library for developement any kind of software:
 
 Change Log
 ======
-0.5.0 First version.
+v0.5.64 First release.
