@@ -32,8 +32,8 @@ namespace BadgesSharp.WebApi.Controllers
         /// </summary>
         public BadgeController()
         {
-            m_unitOfWork = new MemoryUnitOfWork();
-            m_badgeService = new BadgeService(new ParseRepository<Badge>(m_unitOfWork), m_unitOfWork);
+			m_unitOfWork = new MemoryUnitOfWork();
+      		m_badgeService = new BadgeService(new FirebaseRepository<Badge>(m_unitOfWork), m_unitOfWork);
         }
         #endregion
 

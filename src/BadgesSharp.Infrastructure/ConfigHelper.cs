@@ -70,6 +70,17 @@ namespace BadgesSharp.Infrastructure
             }
         }
 
+		/// <summary>
+		/// Gets the Firebase auth secret.
+		/// </summary>
+		public static string FirebaseAuthSecret
+		{
+			get
+			{
+				return Get("FirebaseAuthSecret");
+			}
+		}
+
         /// <summary>
         /// Gets the GitHub access token.
         /// </summary>
