@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 using FireSharp;
 using FireSharp.Config;
 using FireSharp.Interfaces;
@@ -13,7 +11,10 @@ using Skahal.Infrastructure.Framework.Repositories;
 
 namespace BadgesSharp.Infrastructure.Repositories
 {
-    public class FirebaseRepository<TEntity> : RepositoryBase<TEntity>, IRepository<TEntity>
+	/// <summary>
+	/// Firebase repository.
+	/// </summary>
+	public class FirebaseRepository<TEntity> : RepositoryBase<TEntity>, IRepository<TEntity>
         where TEntity : IAggregateRoot, new()
     {
         #region Fields
@@ -22,6 +23,9 @@ namespace BadgesSharp.Infrastructure.Repositories
         #endregion
 
         #region Constructors
+		/// <summary>
+		/// Initializes the <see cref="T:BadgesSharp.Infrastructure.Repositories.FirebaseRepository`1"/> class.
+		/// </summary>
         static FirebaseRepository()
         {
             var config = new FirebaseConfig
@@ -43,12 +47,24 @@ namespace BadgesSharp.Infrastructure.Repositories
             m_rootPath = typeof(TEntity).Name;
         }
 
-        public override long CountAll(Expression<Func<TEntity, bool>> filter)
+		/// <summary>
+		/// Counts all entities that matches the filter.
+		/// </summary>
+		/// <returns>The number of the entities that matches the filter.</returns>
+		/// <param name="filter">The filter.</param>
+		public override long CountAll(Expression<Func<TEntity, bool>> filter)
         {
             return FindAll(0, int.MaxValue, (b) => true).Count();
         }
 
-        public override IEnumerable<TEntity> FindAll(int offset, int limit, Expression<Func<TEntity, bool>> filter)
+		/// <summary>
+		/// Finds all entities that matches the filter.
+		/// </summary>
+		/// <returns>The found entities.</returns>
+		/// <param name="offset">The offset to start the result.</param>
+		/// <param name="limit">The result count limit.</param>
+		/// <param name="filter">The entities filter.</param>
+		public override IEnumerable<TEntity> FindAll(int offset, int limit, Expression<Func<TEntity, bool>> filter)
         {
             var response = s_client.Get(m_rootPath);
 
@@ -64,34 +80,69 @@ namespace BadgesSharp.Infrastructure.Repositories
             .Take(limit);
         }
 
-        public override IEnumerable<TEntity> FindAllAscending<TKey>(int offset, int limit, Expression<Func<TEntity, bool>> filter, Expression<Func<TEntity, TKey>> orderBy)
+		/// <summary>
+		/// Finds all entities that matches the filter in a ascending order.
+		/// </summary>
+		/// <returns>The found entities.</returns>
+		/// <param name="offset">The offset to start the result.</param>
+		/// <param name="limit">The result count limit.</param>
+		/// <param name="filter">The entities filter.</param>
+		/// <param name="orderBy">The order.</param>
+		/// <typeparam name="TKey">The 1st type parameter.</typeparam>
+		public override IEnumerable<TEntity> FindAllAscending<TKey>(int offset, int limit, Expression<Func<TEntity, bool>> filter, Expression<Func<TEntity, TKey>> orderBy)
         {
             throw new NotImplementedException();
         }
 
-        public override IEnumerable<TEntity> FindAllDescending<TKey>(int offset, int limit, Expression<Func<TEntity, bool>> filter, Expression<Func<TEntity, TKey>> orderBy)
+		/// <summary>
+		/// Finds all entities that matches the filter in a descending order.
+		/// </summary>
+		/// <returns>The found entities.</returns>
+		/// <param name="offset">The offset to start the result.</param>
+		/// <param name="limit">The result count limit.</param>
+		/// <param name="filter">The entities filter.</param>
+		/// <param name="orderBy">The order.</param>
+		/// <typeparam name="TKey">The 1st type parameter.</typeparam>
+		public override IEnumerable<TEntity> FindAllDescending<TKey>(int offset, int limit, Expression<Func<TEntity, bool>> filter, Expression<Func<TEntity, TKey>> orderBy)
         {
             throw new NotImplementedException();
         }
 
-        public override TEntity FindBy(object key)
+		/// <summary>
+		/// Finds the entity by the key.
+		/// </summary>
+		/// <returns>The found entity.</returns>
+		/// <param name="key">The key.</param>
+		public override TEntity FindBy(object key)
         {
             return FindAll(0, 1, f => f.Key == key).FirstOrDefault();
         }
 
-        protected override void PersistDeletedItem(TEntity item)
+		/// <summary>
+		/// Persists the deleted item.
+		/// </summary>
+		/// <param name="item">The item.</param>
+		protected override void PersistDeletedItem(TEntity item)
         {
             s_client.Delete(GetEntityPath(item));
         }
 
-        protected override void PersistNewItem(TEntity item)
+		/// <summary>
+		/// Persists the new item.
+		/// </summary>
+		/// <param name="item">The item.</param>
+		protected override void PersistNewItem(TEntity item)
         {            
             var response = s_client.Push(GetEntityPath(item), item);
             var entityCreated = response.ResultAs<TEntity>();
             item.Key = entityCreated.Key;
         }
 
-        protected override void PersistUpdatedItem(TEntity item)
+		/// <summary>
+		/// Persists the updated item.
+		/// </summary>
+		/// <param name="item">The item.</param>
+		protected override void PersistUpdatedItem(TEntity item)
         {
             s_client.Update(GetEntityPath(item), item);
         }
