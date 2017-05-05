@@ -1,7 +1,6 @@
 ﻿using System.IO;
 using System.Text;
 using HelperSharp;
-using Newtonsoft.Json;
 using Skahal.Infrastructure.Framework.Domain;
 
 namespace BadgesSharp
@@ -32,8 +31,7 @@ namespace BadgesSharp
     /// <summary>
     /// Represents a badge.
     /// </summary>
-    [JsonObject]
-	public class Badge : EntityWithIdBase<string>, IAggregateRoot
+    public class Badge : EntityWithIdBase<string>, IAggregateRoot
     {
         #region Constructors
 

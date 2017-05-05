@@ -6,6 +6,7 @@ using FireSharp;
 using FireSharp.Config;
 using FireSharp.Interfaces;
 using HelperSharp;
+using Newtonsoft.Json;
 using Skahal.Infrastructure.Framework.Domain;
 using Skahal.Infrastructure.Framework.Repositories;
 
@@ -66,18 +67,29 @@ namespace BadgesSharp.Infrastructure.Repositories
 		/// <param name="filter">The entities filter.</param>
 		public override IEnumerable<TEntity> FindAll(int offset, int limit, Expression<Func<TEntity, bool>> filter)
         {
-            var response = s_client.Get(m_rootPath);
+           var response = s_client.Get(m_rootPath);
 
-            if (response.Body.Equals("null", StringComparison.OrdinalIgnoreCase))
-            {
-                return new TEntity[0];
-            }
+			if (response.Body.Equals("null", StringComparison.OrdinalIgnoreCase))
+			{
+				return new TEntity[0];
+			}
 
-            return response
-            .ResultAs<List<TEntity>>()
-            .Where(filter.Compile())
-            .Skip(offset)
-            .Take(limit);
+			List<TEntity> entities;
+
+			try
+			{
+				entities = response
+				.ResultAs<List<TEntity>>();
+			}
+			catch (JsonSerializationException)
+			{
+				entities = new List<TEntity>(new TEntity[] { response.ResultAs<TEntity>() });
+			}
+
+			return entities
+				.Where(filter.Compile())
+				.Skip(offset)
+				.Take(limit);
         }
 
 		/// <summary>
@@ -133,10 +145,9 @@ namespace BadgesSharp.Infrastructure.Repositories
 		/// <param name="item">The item.</param>
 		protected override void PersistNewItem(TEntity item)
         {            
-            var response = s_client.Push(GetEntityPath(item), item);
-            var entityCreated = response.ResultAs<TEntity>();
-            item.Key = entityCreated.Key;
-        }
+            item.Key = Guid.NewGuid().ToString();
+			s_client.Push(GetEntityPath(item), item);
+		}
 
 		/// <summary>
 		/// Persists the updated item.
