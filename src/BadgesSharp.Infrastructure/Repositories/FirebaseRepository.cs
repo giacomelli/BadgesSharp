@@ -155,7 +155,14 @@ namespace BadgesSharp.Infrastructure.Repositories
 		/// <param name="item">The item.</param>
 		protected override void PersistUpdatedItem(TEntity item)
         {
-            s_client.Update(GetEntityPath(item), item);
+			if (item.Key.ToString().Length == 0)
+			{
+				PersistNewItem(item);
+			}
+			else
+			{
+				s_client.Update(GetEntityPath(item), item);
+			}
         }
 
         private string GetEntityPath(TEntity item)
