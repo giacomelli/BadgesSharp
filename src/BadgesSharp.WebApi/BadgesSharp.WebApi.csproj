@@ -21,7 +21,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <FileUpgradeFlags>40</FileUpgradeFlags>
-    <UpgradeBackupLocation>C:\Dropbox\personal\Diego Giacomelli\Middleware\BadgesSharp\src\Backup1\</UpgradeBackupLocation>
+    <UpgradeBackupLocation>C:\Users\giacomelli\Documents\BadgesSharp\src\Backup1\</UpgradeBackupLocation>
     <OldToolsVersion>4.0</OldToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">

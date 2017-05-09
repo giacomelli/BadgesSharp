@@ -74,19 +74,14 @@ namespace BadgesSharp.Infrastructure.Repositories
 				return new TEntity[0];
 			}
 
-			List<TEntity> entities;
+            var entities = response.ResultAs<IDictionary<string, TEntity>>().Values;
 
-			try
-			{
-				entities = response
-				.ResultAs<List<TEntity>>();
-			}
-			catch (JsonSerializationException)
-			{
-				entities = new List<TEntity>(new TEntity[] { response.ResultAs<TEntity>() });
-			}
+            if (filter == null)
+            {
+                filter = (e) => true;
+            }
 
-			return entities
+            return entities
 				.Where(filter.Compile())
 				.Skip(offset)
 				.Take(limit);
@@ -146,7 +141,7 @@ namespace BadgesSharp.Infrastructure.Repositories
 		protected override void PersistNewItem(TEntity item)
         {            
             item.Key = Guid.NewGuid().ToString();
-			s_client.Push(GetEntityPath(item), item);
+			s_client.Push(m_rootPath, item);
 		}
 
 		/// <summary>

@@ -55,6 +55,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Repositories\FirebaseRepositoryTest.cs" />
     <Compile Include="Repositories\ParseRepositoryTest.cs" />
     <Compile Include="Repositories\StubEntity.cs" />
   </ItemGroup>
