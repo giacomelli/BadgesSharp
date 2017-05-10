@@ -8,6 +8,7 @@ environment:
     secure: Jmpeow5aAcDhUHkwac/AC6MzQciGc9TLgrp5oz4U0gyAwCWGqqxJhmjz3AVrWp/V    
 install:
   - cmd: choco install resharper-clt.portable
+  - cmd: choco install fxcop
   - cinst nunit
   - cinst 7zip.commandline
   - cinst GitVersion.Portable
