@@ -11,7 +11,7 @@ BadgesSharp is a free service to generate badges that need some kind of input an
 --------
 
 ## Badges
-#####DupFinder
+### DupFinder
 [![DupFinder](https://badgessharp.apphb.com/badges/giacomelli/BadgesSharp/DupFinder)](https://badgessharp.apphb.com/badges/giacomelli/BadgesSharp/DupFinder)
 
 ### FxCop
